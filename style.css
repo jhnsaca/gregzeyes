@@ -140,11 +140,12 @@ nav {
 .next-page-trigger h2 { font-size: 4rem; font-family: var(--font-head); transition: 0.3s; }
 .next-page-trigger:hover h2 { color: var(--gold); transform: translateX(20px); }
 
-/* === PAGE: ESSENCE (Updated Layout) === */
+/* === PAGE: ESSENCE (CORRECTED) === */
 #essence {
     position: relative; 
     width: 100%;
-    background: #fff; /* Base for exclusion effect */
+    /* We use white background for the text interactions below */
+    background: #fff; 
 }
 
 .essence-wrapper {
@@ -160,19 +161,22 @@ nav {
     height: 100vh;
     background: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop') center/cover;
     z-index: 1;
-    /* We add a slight dim so white text pops before the blend mode kicks in */
-    filter: brightness(0.8); 
+    /* Darken background slightly so white text pops */
+    filter: brightness(0.7); 
 }
 
 .essence-content {
     position: relative; 
     z-index: 2; 
     width: 100%;
+    /* FIX: Removed the padding-top that was pushing content down */
+    padding-top: 0; 
 }
 
-/* 1. New Hero Section */
+/* 1. Hero Section (The Landing View) */
 .essence-hero {
-    height: 100vh; /* Takes full screen */
+    height: 100vh; /* Forces it to fill exactly one screen */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -182,14 +186,16 @@ nav {
 
 .artist-name {
     font-family: var(--font-head);
-    font-size: 8vw;
+    font-size: 8vw; /* Responsive huge size */
     line-height: 0.85;
-    color: #fff;
+    color: #ffffff; /* Pure white */
     text-transform: uppercase;
     letter-spacing: -2px;
-    mix-blend-mode: overlay; /* Subtle blend with background */
     margin-bottom: 2rem;
-    animation: fadeInUp 1.5s ease;
+    /* FIX: Added shadow instead of blend mode for better visibility */
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: fadeInUp 1.5s ease forwards;
+    opacity: 0; /* Starts invisible for animation */
 }
 
 .scroll-instruction {
@@ -198,12 +204,13 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
     font-family: var(--font-body);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    opacity: 0.8;
+    animation: fadeIn 2s ease 1s forwards; /* Delays appearance */
+    opacity: 0;
 }
 
 .scrolldown-line {
@@ -226,13 +233,15 @@ nav {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 2. Narrative Flow (The Blend Effect) */
+/* 2. Narrative Flow (The Scroll Down Part) */
 .essence-narrative-flow {
+    /* Gradient to fade from the image to black */
+    background: linear-gradient(to bottom, transparent 0%, #000 30%); 
     padding-bottom: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8) 20%); /* Fade into dark */
+    width: 100%;
 }
 
 .blend-text {
@@ -241,16 +250,19 @@ nav {
     font-weight: 700; 
     line-height: 0.8; 
     text-align: center;
-    color: #000;
+    /* Black text + Hard Light blend mode = See-through effect */
+    color: #000; 
     margin: 10vh 0;
-    mix-blend-mode: hard-light; /* The magic interaction */
+    mix-blend-mode: hard-light; 
+    background-color: white; /* Helps the blend mode calculation */
 }
 
 .essence-text-block {
-    background: rgba(10,10,10, 0.9); /* Dark box for readability */
+    background: rgba(10,10,10, 0.8); 
     color: #e0e0e0; 
     padding: 80px 60px; 
     max-width: 700px; 
+    width: 90%;
     margin: 0 auto;
     text-align: center; 
     line-height: 1.8; 
@@ -259,11 +271,16 @@ nav {
     backdrop-filter: blur(10px);
 }
 
+.blend-text.bottom {
+    color: #fff; /* White for the bottom one so it pops on the black bg */
+    mix-blend-mode: normal;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .artist-name { font-size: 15vw; }
     .blend-text { font-size: 18vw; }
-    .essence-text-block { width: 90%; padding: 40px 20px; }
+    .essence-text-block { padding: 40px 20px; }
 }
 
 /* === PAGE: CONTACT (Emotional) === */
