@@ -3,142 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GREGOIRE THIBAUT | VISUALS</title>
+    <title>GREGOIRE THIBAUT | PORTFOLIO</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonts: Cormorant Garamond (Cinematic Serif) & Archivo (Modern Sans) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body class="loading">
+<body>
+
+    <!-- Global Noise Overlay for Texture -->
+    <div class="noise-overlay"></div>
 
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- Page Transition Curtain -->
-    <div class="transition-curtain">
-        <div class="curtain-text">GREGOIRE THIBAUT</div>
-    </div>
-
     <!-- Navigation -->
-    <nav>
-        <div class="logo nav-trigger" data-target="home">GT.</div>
-        <div class="menu">
-            <span class="nav-item nav-trigger" data-target="work">Work</span>
-            <span class="nav-item nav-trigger" data-target="essence">Essence</span>
-            <span class="nav-item nav-trigger cta-special" data-target="contact">Book Now</span>
-        </div>
+    <nav class="navbar">
+        <div class="logo">GT.</div>
+        <ul class="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">Essence</a></li>
+            <li><a href="#contact" class="book-btn">Book Now</a></li>
+        </ul>
     </nav>
 
-    <!-- CONTENT WRAPPER -->
-    <main id="main-container">
+    <!-- 1. HERO SECTION -->
+    <section id="home">
+        <div class="hero-bg-container">
+            <!-- Parallax Background Image -->
+            <div class="hero-bg"></div> 
+            <div class="vignette-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Silence <br> <span class="italic">Is Loud.</span></h1>
+            <p class="hero-subtitle">Visual Storytelling by Gregoire Thibaut</p>
+        </div>
 
-        <!-- SECTION: HOME -->
-        <section id="home" class="page active-page">
-            <div class="hero-container">
-                <div class="hero-bg"></div> <!-- Image injected via CSS -->
-                <div class="overlay-gradient"></div>
-                <div class="hero-text">
-                    <h1 class="reveal-text">Silence <br> <span class="italic">Is Loud.</span></h1>
-                    <p class="sub-hero reveal-delay">Photography by Gregoire Thibaut</p>
-                </div>
-                <div class="scroll-indicator">
-                    <span>Explore</span>
-                    <div class="line"></div>
-                </div>
-            </div>
-        </section>
+        <div class="scroll-prompt">
+            <span>Scroll</span>
+            <div class="line"></div>
+        </div>
+    </section>
 
-        <!-- SECTION: WORK (Horizontal Scroll) -->
-        <section id="work" class="page">
-            <div class="work-header">
+    <!-- 2. WORK SECTION -->
+    <section id="work">
+        <div class="container">
+            <div class="section-header fade-in">
                 <h2>Selected <span class="italic">Visions</span></h2>
+                <p>Curated works in light and motion.</p>
             </div>
-            <div class="horizontal-scroll-wrapper">
-                <div class="gallery-track">
-                    <!-- Item 1 -->
-                    <div class="gallery-item">
-                        <div class="image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop" alt="Fashion">
-                        </div>
-                        <div class="item-info">
-                            <span>01</span>
-                            <h3>Ethereal</h3>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="gallery-item">
-                        <div class="image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=2070&auto=format&fit=crop" alt="Portrait">
-                        </div>
-                        <div class="item-info">
-                            <span>02</span>
-                            <h3>Raw</h3>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="gallery-item">
-                        <div class="image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop" alt="Abstract">
-                        </div>
-                        <div class="item-info">
-                            <span>03</span>
-                            <h3>Void</h3>
-                        </div>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="gallery-item">
-                        <div class="image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1948&auto=format&fit=crop" alt="Nature">
-                        </div>
-                        <div class="item-info">
-                            <span>04</span>
-                            <h3>Origin</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- SECTION: ESSENCE (About) -->
-        <section id="essence" class="page">
-            <div class="essence-content">
-                <div class="text-block">
-                    <h2>I don't take photos.<br><span class="highlight">I steal seconds from eternity.</span></h2>
-                    <p>In a world of noise, my work is the silence. Exclusive, timeless, and painfully honest. If you are looking for standard, look elsewhere.</p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" class="signature" alt="Signature">
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: CONTACT (The "Trap") -->
-        <section id="contact" class="page">
-            <div class="contact-container">
-                <div class="large-text-wrapper">
-                    <h2 class="hover-reveal">CREATE<br>YOUR<br>LEGACY</h2>
-                </div>
-                <div class="contact-form-wrapper">
-                    <p class="form-instruction">Availability is limited. Tell me your story.</p>
-                    <form action="mailto:contact@gregoirethibaut.com" method="post" enctype="text/plain">
-                        <div class="input-group">
-                            <input type="text" required placeholder=" ">
-                            <label>Name</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" required placeholder=" ">
-                            <label>Email</label>
-                        </div>
-                        <button type="submit" class="submit-btn">INITIATE</button>
-                    </form>
-                    <div class="direct-contact">
-                        <a href="mailto:contact@gregoirethibaut.com">contact@gregoirethibaut.com</a>
+            <!-- PART A: STILLS (Photos) -->
+            <div class="category-label fade-in">01. STILLS</div>
+            <div class="horizontal-scroll-container" id="stills-scroll">
+                <div class="scroll-track">
+                    <div class="work-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" alt="Portrait">
+                        <div class="card-info">Editorial</div>
+                    </div>
+                    <div class="work-card">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" alt="Man">
+                        <div class="card-info">Raw</div>
+                    </div>
+                    <div class="work-card">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop" alt="Landscape">
+                        <div class="card-info">Nature</div>
+                    </div>
+                    <div class="work-card">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop" alt="Architecture">
+                        <div class="card-info">Structure</div>
                     </div>
                 </div>
             </div>
-        </section>
 
-    </main>
+            <!-- PART B: MOTION (Videos) -->
+            <div class="category-label fade-in" style="margin-top: 100px;">02. MOTION</div>
+            <div class="horizontal-scroll-container" id="motion-scroll">
+                <div class="scroll-track">
+                    <div class="work-card video-card">
+                        <!-- Fake Video 1 -->
+                        <video autoplay muted loop playsinline>
+                            <source src="https://joy1.videvo.net/videvo_files/video/free/2019-05/large_watermarked/190516_06_Bussan-m_09_preview.mp4" type="video/mp4">
+                        </video>
+                        <div class="card-info">Commercial</div>
+                    </div>
+                    <div class="work-card video-card">
+                        <!-- Fake Video 2 -->
+                        <video autoplay muted loop playsinline>
+                            <source src="https://joy1.videvo.net/videvo_files/video/free/2015-08/large_watermarked/Abstract_Light_Leak_Transition_03_preview.mp4" type="video/mp4">
+                        </video>
+                        <div class="card-info">Abstract</div>
+                    </div>
+                    <div class="work-card video-card">
+                        <!-- Fake Video 3 -->
+                        <video autoplay muted loop playsinline>
+                            <source src="https://joy1.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4" type="video/mp4">
+                        </video>
+                        <div class="card-info">Lifestyle</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. ABOUT / ESSENCE -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <h2>The <span class="italic">Essence</span></h2>
+                <p>I don't just capture images; I construct memories. My approach is rooted in the belief that photography is silence made visible. Based in France, I work with brands and individuals who refuse to be ordinary.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" class="signature" alt="Signature">
+            </div>
+            <div class="about-img fade-in">
+                <img src="https://images.unsplash.com/photo-1554048612-387768052bf7?q=80&w=1000&auto=format&fit=crop" alt="Gregoire Thibaut">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CONTACT -->
+    <section id="contact">
+        <div class="contact-content fade-in">
+            <p class="pre-title">Commission The Artist</p>
+            <h2 class="giant-link"><a href="mailto:contact@gregoirethibaut.com">CONTACT@<br>GREGOIRETHIBAUT.COM</a></h2>
+            <div class="footer-nav">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Behance</a>
+            </div>
+            <p class="copyright">&copy; 2025 Gregoire Thibaut.</p>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
