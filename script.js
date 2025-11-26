@@ -1,33 +1,75 @@
-// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Scroll Animation (Intersection Observer)
-    // This makes elements fade in when they come into view
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    // 1. CUSTOM CURSOR LOGIC
+    const cursorDot = document.querySelector('[data-cursor-dot]');
+    const cursorOutline = document.querySelector('[data-cursor-outline]');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Only animate once
-            }
-        });
-    }, observerOptions);
+    window.addEventListener('mousemove', function (e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
 
-    const animateElements = document.querySelectorAll('.scroll-animate');
-    animateElements.forEach(el => observer.observe(el));
+        // Dot follows instantly
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
 
-
-    // 2. Parallax Effect for Hero (Optional polish)
-    window.addEventListener('scroll', () => {
-        const scrollPosition = window.pageYOffset;
-        const hero = document.querySelector('.hero-section');
-        // Moves the background slower than the foreground
-        hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+        // Outline follows with lag (animation in CSS)
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
     });
-    
+
+    // 2. PAGE TRANSITIONS (THE "AWARD WINNING" FEEL)
+    const links = document.querySelectorAll('.nav-trigger');
+    const curtain = document.querySelector('.transition-curtain');
+    const curtainText = document.querySelector('.curtain-text');
+    const pages = document.querySelectorAll('.page');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('data-target');
+            
+            // If already on this page, do nothing
+            if(document.getElementById(targetId).classList.contains('active-page')) return;
+
+            // Start Transition
+            curtain.classList.add('active');
+            
+            // Show text after curtain covers screen
+            setTimeout(() => {
+                curtainText.style.opacity = '1';
+            }, 400);
+
+            // Switch content behind the curtain
+            setTimeout(() => {
+                // Remove active class from all pages
+                pages.forEach(page => page.classList.remove('active-page'));
+                
+                // Add active class to target
+                document.getElementById(targetId).classList.add('active-page');
+                
+                // Reset scroll for horizontal section
+                if(targetId === 'work') {
+                    document.querySelector('.horizontal-scroll-wrapper').scrollLeft = 0;
+                }
+
+            }, 800);
+
+            // Lift Curtain
+            setTimeout(() => {
+                curtainText.style.opacity = '0';
+                curtain.classList.remove('active');
+            }, 1400);
+        });
+    });
+
+    // 3. HORIZONTAL SCROLL ENHANCEMENT (For Mouse Wheel)
+    const scrollContainer = document.querySelector(".horizontal-scroll-wrapper");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    });
+
 });
