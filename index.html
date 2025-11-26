@@ -3,140 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GREGOIRE THIBAUT | PORTFOLIO</title>
+    <title>GREGOIRE THIBAUT | VISUALS</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonts -->
+    <!-- Fonts: Cormorant Garamond (Serif) & Manrope (Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,500&family=Manrope:wght@200;300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Global Noise Overlay for Texture -->
-    <div class="noise-overlay"></div>
-
-    <!-- Custom Cursor -->
+    <!-- 1. TEXTURE & CURSOR -->
+    <div class="noise"></div>
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">GT.</div>
-        <ul class="nav-links">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">Essence</a></li>
-            <li><a href="#contact" class="book-btn">Book Now</a></li>
-        </ul>
+    <!-- 2. THE TRANSITION CURTAIN (The Award Winning Effect) -->
+    <div class="curtain">
+        <div class="curtain-content">
+            <span class="curtain-name">GREGOIRE THIBAUT</span>
+            <span class="curtain-loading">LOADING ASSETS</span>
+        </div>
+    </div>
+
+    <!-- 3. NAVIGATION (Top Right) -->
+    <nav>
+        <div class="logo nav-link" data-target="home">GT.</div>
+        <div class="menu-items">
+            <a href="#" class="nav-link" data-target="work">Work</a>
+            <a href="#" class="nav-link" data-target="essence">Essence</a>
+            <a href="#" class="nav-link highlight-btn" data-target="contact">Book Now</a>
+        </div>
     </nav>
 
-    <!-- 1. HERO SECTION -->
-    <section id="home">
-        <div class="hero-bg-container">
-            <!-- Parallax Background Image -->
-            <div class="hero-bg"></div> 
-            <div class="vignette-overlay"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">Silence <br> <span class="italic">Is Loud.</span></h1>
-            <p class="hero-subtitle">Visual Storytelling by Gregoire Thibaut</p>
-        </div>
+    <!-- 4. PAGES CONTAINER -->
+    <main id="main-container">
 
-        <div class="scroll-prompt">
-            <span>Scroll</span>
-            <div class="line"></div>
-        </div>
-    </section>
-
-    <!-- 2. WORK SECTION -->
-    <section id="work">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Selected <span class="italic">Visions</span></h2>
-                <p>Curated works in light and motion.</p>
+        <!-- === PAGE: HOME === -->
+        <section id="home" class="page active">
+            <div class="home-bg"></div>
+            <div class="hero-content">
+                <p class="hero-label fade-up">Portfolio 2025</p>
+                <h1 class="hero-title fade-up-delay">Silence<br><span class="italic">Is Loud.</span></h1>
             </div>
+            <div class="enter-trigger nav-link" data-target="work">
+                <span>Enter Gallery</span>
+                <div class="line"></div>
+            </div>
+        </section>
 
-            <!-- PART A: STILLS (Photos) -->
-            <div class="category-label fade-in">01. STILLS</div>
-            <div class="horizontal-scroll-container" id="stills-scroll">
-                <div class="scroll-track">
-                    <div class="work-card">
+        <!-- === PAGE: WORK (Vertical Grid) === -->
+        <section id="work" class="page">
+            <div class="container">
+                
+                <!-- Category: PHOTOGRAPHY -->
+                <div class="work-header">
+                    <h2>01. STILLS</h2>
+                    <p>Frozen moments in time.</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <!-- Photo 1 -->
+                    <div class="grid-item tall">
                         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" alt="Portrait">
-                        <div class="card-info">Editorial</div>
+                        <div class="hover-info">Editorial</div>
                     </div>
-                    <div class="work-card">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" alt="Man">
-                        <div class="card-info">Raw</div>
+                    <!-- Photo 2 -->
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1000&auto=format&fit=crop" alt="Landscape">
+                        <div class="hover-info">Alpes</div>
                     </div>
-                    <div class="work-card">
-                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop" alt="Landscape">
-                        <div class="card-info">Nature</div>
+                    <!-- Photo 3 -->
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=1000&auto=format&fit=crop" alt="Fashion">
+                        <div class="hover-info">Vogue</div>
                     </div>
-                    <div class="work-card">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop" alt="Architecture">
-                        <div class="card-info">Structure</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PART B: MOTION (Videos) -->
-            <div class="category-label fade-in" style="margin-top: 100px;">02. MOTION</div>
-            <div class="horizontal-scroll-container" id="motion-scroll">
-                <div class="scroll-track">
-                    <div class="work-card video-card">
-                        <!-- Fake Video 1 -->
-                        <video autoplay muted loop playsinline>
-                            <source src="https://joy1.videvo.net/videvo_files/video/free/2019-05/large_watermarked/190516_06_Bussan-m_09_preview.mp4" type="video/mp4">
-                        </video>
-                        <div class="card-info">Commercial</div>
-                    </div>
-                    <div class="work-card video-card">
-                        <!-- Fake Video 2 -->
-                        <video autoplay muted loop playsinline>
-                            <source src="https://joy1.videvo.net/videvo_files/video/free/2015-08/large_watermarked/Abstract_Light_Leak_Transition_03_preview.mp4" type="video/mp4">
-                        </video>
-                        <div class="card-info">Abstract</div>
-                    </div>
-                    <div class="work-card video-card">
-                        <!-- Fake Video 3 -->
-                        <video autoplay muted loop playsinline>
-                            <source src="https://joy1.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4" type="video/mp4">
-                        </video>
-                        <div class="card-info">Lifestyle</div>
+                    <!-- Photo 4 -->
+                    <div class="grid-item tall">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1000&auto=format&fit=crop" alt="Travel">
+                        <div class="hover-info">Nomad</div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </section>
+                <div class="spacer"></div>
 
-    <!-- 3. ABOUT / ESSENCE -->
-    <section id="about">
-        <div class="about-grid">
-            <div class="about-text fade-in">
-                <h2>The <span class="italic">Essence</span></h2>
-                <p>I don't just capture images; I construct memories. My approach is rooted in the belief that photography is silence made visible. Based in France, I work with brands and individuals who refuse to be ordinary.</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" class="signature" alt="Signature">
-            </div>
-            <div class="about-img fade-in">
-                <img src="https://images.unsplash.com/photo-1554048612-387768052bf7?q=80&w=1000&auto=format&fit=crop" alt="Gregoire Thibaut">
-            </div>
-        </div>
-    </section>
+                <!-- Category: VIDEO -->
+                <div class="work-header">
+                    <h2>02. MOTION</h2>
+                    <p>Cinema and visual storytelling.</p>
+                </div>
 
-    <!-- 4. CONTACT -->
-    <section id="contact">
-        <div class="contact-content fade-in">
-            <p class="pre-title">Commission The Artist</p>
-            <h2 class="giant-link"><a href="mailto:contact@gregoirethibaut.com">CONTACT@<br>GREGOIRETHIBAUT.COM</a></h2>
-            <div class="footer-nav">
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Behance</a>
+                <div class="video-grid">
+                    <!-- Video 1 -->
+                    <div class="video-item">
+                        <video autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-05/large_watermarked/190516_06_Bussan-m_09_preview.mp4"></video>
+                        <div class="hover-info">Commercial</div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="video-item">
+                        <video autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2015-08/large_watermarked/Abstract_Light_Leak_Transition_03_preview.mp4"></video>
+                        <div class="hover-info">Artistic</div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="video-item full-width">
+                        <video autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4"></video>
+                        <div class="hover-info">Documentary</div>
+                    </div>
+                    <!-- Video 4 -->
+                    <div class="video-item">
+                        <video autoplay muted loop playsinline src="https://cdn.coverr.co/videos/coverr-walking-in-a-forest-4433/1080p.mp4"></video>
+                        <div class="hover-info">Music Video</div>
+                    </div>
+                </div>
+
+                <div class="spacer"></div>
+                
+                <div class="next-page-trigger nav-link" data-target="essence">
+                    <p>Discover the Artist</p>
+                    <h2>THE ESSENCE &rarr;</h2>
+                </div>
             </div>
-            <p class="copyright">&copy; 2025 Gregoire Thibaut.</p>
-        </div>
-    </section>
+        </section>
+
+        <!-- === PAGE: ESSENCE (The "Surprise") === -->
+        <section id="essence" class="page">
+            <div class="essence-wrapper">
+                <div class="essence-bg"></div>
+                <div class="essence-content">
+                    <h2 class="blend-text">I DO NOT<br>TAKE PHOTOS.</h2>
+                    <div class="essence-narrative">
+                        <p>I capture the breath between seconds. <br>In a world of noise, I offer silence.</p>
+                        <p>My work is a fusion of raw emotion and calculated precision. When you look at my work, I don't want you to see a picture. I want you to feel a memory that isn't yours.</p>
+                    </div>
+                    <h2 class="blend-text bottom">I CAPTURE<br>SOULS.</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- === PAGE: BOOK NOW (Emotion) === -->
+        <section id="contact" class="page">
+            <div class="contact-bg"></div>
+            <div class="contact-wrapper">
+                <div class="contact-left">
+                    <h2 class="emotional-title">Let's Create<br><span class="italic">History.</span></h2>
+                    <p>Availability is limited. The experience is eternal.</p>
+                    
+                    <div class="contact-details">
+                        <a href="mailto:contact@gregoirethibaut.com">contact@gregoirethibaut.com</a>
+                        <div class="socials">
+                            <a href="#">IG</a>
+                            <a href="#">LN</a>
+                            <a href="#">BE</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-right">
+                    <form>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Who are you?">
+                        </div>
+                        <div class="form-group">
+                            <label>Vision</label>
+                            <input type="text" placeholder="What do we create?">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Where to reach you?">
+                        </div>
+                        <button type="button" class="submit-btn">INITIATE</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 </body>
