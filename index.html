@@ -3,106 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gregoire Thibaut | Photography</title>
+    <title>GREGOIRE THIBAUT | VISUALS</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts: Playfair Display (Elegant Serif) & Montserrat (Clean Sans) -->
+    <!-- Fonts: Cormorant Garamond (Cinematic Serif) & Archivo (Modern Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="loading">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Page Transition Curtain -->
+    <div class="transition-curtain">
+        <div class="curtain-text">GREGOIRE THIBAUT</div>
+    </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">Gregoire T.</div>
-        <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+    <nav>
+        <div class="logo nav-trigger" data-target="home">GT.</div>
+        <div class="menu">
+            <span class="nav-item nav-trigger" data-target="work">Work</span>
+            <span class="nav-item nav-trigger" data-target="essence">Essence</span>
+            <span class="nav-item nav-trigger cta-special" data-target="contact">Book Now</span>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-content scroll-animate">
-            <p class="subtitle">Capturing Moments</p>
-            <h1>Visual Storytelling<br> <span class="italic-accent">Through the Lens</span></h1>
-            <a href="#portfolio" class="btn-primary">View Work</a>
-        </div>
-        <div class="hero-overlay"></div>
-    </section>
+    <!-- CONTENT WRAPPER -->
+    <main id="main-container">
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section-padding">
-        <div class="container">
-            <div class="section-header scroll-animate">
-                <h2>Selected Works</h2>
-                <p>A curation of emotions and light.</p>
-            </div>
-            
-            <div class="portfolio-grid">
-                <!-- Placeholder Images from Unsplash -->
-                <div class="gallery-item scroll-animate">
-                    <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portrait">
-                    <div class="overlay"><h3>Editorial</h3></div>
+        <!-- SECTION: HOME -->
+        <section id="home" class="page active-page">
+            <div class="hero-container">
+                <div class="hero-bg"></div> <!-- Image injected via CSS -->
+                <div class="overlay-gradient"></div>
+                <div class="hero-text">
+                    <h1 class="reveal-text">Silence <br> <span class="italic">Is Loud.</span></h1>
+                    <p class="sub-hero reveal-delay">Photography by Gregoire Thibaut</p>
                 </div>
-                <div class="gallery-item scroll-animate">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Landscape">
-                    <div class="overlay"><h3>Landscape</h3></div>
-                </div>
-                <div class="gallery-item scroll-animate">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fashion">
-                    <div class="overlay"><h3>Fashion</h3></div>
-                </div>
-                <div class="gallery-item scroll-animate">
-                    <img src="https://images.unsplash.com/photo-1504194921103-f8b80cadd5e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Architecture">
-                    <div class="overlay"><h3>Urban</h3></div>
+                <div class="scroll-indicator">
+                    <span>Explore</span>
+                    <div class="line"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section-padding bg-light">
-        <div class="container split-layout">
-            <div class="about-image scroll-animate">
-                <img src="https://images.unsplash.com/photo-1554048612-387768052bf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Photographer">
+        <!-- SECTION: WORK (Horizontal Scroll) -->
+        <section id="work" class="page">
+            <div class="work-header">
+                <h2>Selected <span class="italic">Visions</span></h2>
             </div>
-            <div class="about-text scroll-animate">
-                <h2>The Artist</h2>
-                <p>My name is Gregoire. I believe photography is not just about clicking a shutter; it's about freezing a feeling. With a focus on natural light and raw emotion, I strive to create timeless imagery.</p>
-                <p>Based in France, available worldwide.</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" class="signature" alt="Signature">
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section-padding">
-        <div class="container">
-            <div class="contact-wrapper scroll-animate">
-                <h2>Let's Create</h2>
-                <p>Open for commissions and collaborations.</p>
-                <a href="mailto:contact@gregoirethibaut.com" class="email-link">contact@gregoirethibaut.com</a>
-                
-                <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Behance</a>
+            <div class="horizontal-scroll-wrapper">
+                <div class="gallery-track">
+                    <!-- Item 1 -->
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop" alt="Fashion">
+                        </div>
+                        <div class="item-info">
+                            <span>01</span>
+                            <h3>Ethereal</h3>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=2070&auto=format&fit=crop" alt="Portrait">
+                        </div>
+                        <div class="item-info">
+                            <span>02</span>
+                            <h3>Raw</h3>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop" alt="Abstract">
+                        </div>
+                        <div class="item-info">
+                            <span>03</span>
+                            <h3>Void</h3>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1948&auto=format&fit=crop" alt="Nature">
+                        </div>
+                        <div class="item-info">
+                            <span>04</span>
+                            <h3>Origin</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 Gregoire Thibaut. All Rights Reserved.</p>
-    </footer>
+        <!-- SECTION: ESSENCE (About) -->
+        <section id="essence" class="page">
+            <div class="essence-content">
+                <div class="text-block">
+                    <h2>I don't take photos.<br><span class="highlight">I steal seconds from eternity.</span></h2>
+                    <p>In a world of noise, my work is the silence. Exclusive, timeless, and painfully honest. If you are looking for standard, look elsewhere.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" class="signature" alt="Signature">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CONTACT (The "Trap") -->
+        <section id="contact" class="page">
+            <div class="contact-container">
+                <div class="large-text-wrapper">
+                    <h2 class="hover-reveal">CREATE<br>YOUR<br>LEGACY</h2>
+                </div>
+                <div class="contact-form-wrapper">
+                    <p class="form-instruction">Availability is limited. Tell me your story.</p>
+                    <form action="mailto:contact@gregoirethibaut.com" method="post" enctype="text/plain">
+                        <div class="input-group">
+                            <input type="text" required placeholder=" ">
+                            <label>Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" required placeholder=" ">
+                            <label>Email</label>
+                        </div>
+                        <button type="submit" class="submit-btn">INITIATE</button>
+                    </form>
+                    <div class="direct-contact">
+                        <a href="mailto:contact@gregoirethibaut.com">contact@gregoirethibaut.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 </body>
