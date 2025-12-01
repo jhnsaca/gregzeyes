@@ -35,23 +35,7 @@
         </div>
     </nav>
 
-    <!-- 4. PAGES CONTAINER -->
-    <main id="main-container">
-
-        <!-- === PAGE: HOME === -->
-        <section id="home" class="page active">
-            <div class="home-bg"></div>
-            <div class="hero-content">
-                <p class="hero-label fade-up">Portfolio 2025</p>
-                <h1 class="hero-title fade-up-delay">Silence<br><span class="italic">Is Loud.</span></h1>
-            </div>
-            <div class="enter-trigger nav-link" data-target="work">
-                <span>Enter Gallery</span>
-                <div class="line"></div>
-            </div>
-        </section>
-
-        <!-- === PAGE: WORK (Vertical Grid) === -->
+    <!-- === PAGE: WORK (Vertical Grid) === -->
         <section id="work" class="page">
             <div class="container">
                 
@@ -62,25 +46,35 @@
                 </div>
                 
                 <div class="gallery-grid">
-                    <!-- Photo 1 -->
+                    <!-- Photo 1 (Tall): Model Koegel - High Fashion -->
                     <div class="grid-item tall">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" alt="Portrait">
+                        <img src="assets/img/model-koegel.jpg" alt="Model Koegel">
                         <div class="hover-info">Editorial</div>
                     </div>
-                    <!-- Photo 2 -->
+                    <!-- Photo 2 (Wide): Cowboy Chili - Documentary -->
                     <div class="grid-item">
-                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1000&auto=format&fit=crop" alt="Landscape">
-                        <div class="hover-info">Alpes</div>
+                        <img src="assets/img/cowboy-chili.jpg" alt="Cowboy Chili">
+                        <div class="hover-info">Origins</div>
                     </div>
-                    <!-- Photo 3 -->
+                    <!-- Photo 3 (Wide): Lau Jump - Motion/Art -->
                     <div class="grid-item">
-                        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=1000&auto=format&fit=crop" alt="Fashion">
-                        <div class="hover-info">Vogue</div>
+                        <img src="assets/img/lau-jump.jpg" alt="Lau Jump">
+                        <div class="hover-info">Freedom</div>
                     </div>
-                    <!-- Photo 4 -->
+                    <!-- Photo 4 (Tall): Peru Man - Portraiture -->
                     <div class="grid-item tall">
-                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1000&auto=format&fit=crop" alt="Travel">
-                        <div class="hover-info">Nomad</div>
+                        <img src="assets/img/peru-man.jpg" alt="Peru Man">
+                        <div class="hover-info">Character</div>
+                    </div>
+                    
+                    <!-- Bonus Row (Optional - keeping the grid balanced) -->
+                    <div class="grid-item">
+                        <img src="assets/img/enfant-as.jpg" alt="Enfant">
+                        <div class="hover-info">Innocence</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/img/lau-cygne2.jpg" alt="Cygne">
+                        <div class="hover-info">Ethereal</div>
                     </div>
                 </div>
 
@@ -93,24 +87,25 @@
                 </div>
 
                 <div class="video-grid">
-                    <!-- Video 1 -->
+                    <!-- Video 1: Using "Img Resto" as cover -->
                     <div class="video-item">
-                        <video autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-05/large_watermarked/190516_06_Bussan-m_09_preview.mp4"></video>
-                        <div class="hover-info">Commercial</div>
+                        <!-- Added 'poster' attribute to show your photo before video loads -->
+                        <video poster="assets/img/img-resto.jpg" autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-05/large_watermarked/190516_06_Bussan-m_09_preview.mp4"></video>
+                        <div class="hover-info">Lifestyle</div>
                     </div>
-                    <!-- Video 2 -->
+                    <!-- Video 2: Using "Lau Cygne" as cover -->
                     <div class="video-item">
-                        <video autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2015-08/large_watermarked/Abstract_Light_Leak_Transition_03_preview.mp4"></video>
+                        <video poster="assets/img/lau-cygne.jpg" autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2015-08/large_watermarked/Abstract_Light_Leak_Transition_03_preview.mp4"></video>
                         <div class="hover-info">Artistic</div>
                     </div>
-                    <!-- Video 3 -->
+                    <!-- Video 3: Using "Bolivie Mural" as cover -->
                     <div class="video-item full-width">
-                        <video autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4"></video>
+                        <video poster="assets/img/bolivie-mural.jpg" autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4"></video>
                         <div class="hover-info">Documentary</div>
                     </div>
-                    <!-- Video 4 -->
+                    <!-- Video 4: Using "Lau Robe" as cover -->
                     <div class="video-item">
-                        <video autoplay muted loop playsinline src="https://cdn.coverr.co/videos/coverr-walking-in-a-forest-4433/1080p.mp4"></video>
+                        <video poster="assets/img/lau-robe.jpg" autoplay muted loop playsinline src="https://cdn.coverr.co/videos/coverr-walking-in-a-forest-4433/1080p.mp4"></video>
                         <div class="hover-info">Music Video</div>
                     </div>
                 </div>
