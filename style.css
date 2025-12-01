@@ -8,6 +8,66 @@
     --ease: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
+/* === PRELOADER (Cinematic Intro) === */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    z-index: 99999; /* Must be on top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.loader-content {
+    text-align: center;
+    color: var(--text);
+    mix-blend-mode: exclusion;
+}
+
+.counter {
+    font-family: var(--font-head);
+    font-size: 10vw; /* Huge elegant numbers */
+    font-weight: 300;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.loader-text {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #555;
+    animation: pulse 2s infinite;
+}
+
+/* The Exit Animation */
+.preloader.finished {
+    transform: translateY(-100%); /* Slides up like a curtain */
+}
+
+/* Prevent scrolling while loading */
+body.loading {
+    overflow: hidden;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .counter { font-size: 20vw; }
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
 
 body {
