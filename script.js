@@ -1,5 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     
+    // --- 0. PRELOADER LOGIC ---
+    const preloader = document.querySelector('.preloader');
+    const counter = document.querySelector('.counter');
+    const body = document.body;
+
+    // Lock scroll immediately
+    body.classList.add('loading');
+
+    let loadValue = 0;
+    let imagesLoaded = false;
+
+    // 1. Simulate progress (so it doesn't stay at 0 if loading is fast)
+    const interval = setInterval(() => {
+        if (loadValue < 90) {
+            loadValue += Math.floor(Math.random() * 5); // Random increment
+            counter.textContent = loadValue;
+        }
+    }, 100);
+
+    // 2. Wait for the actual window load (images/videos)
+    window.addEventListener('load', () => {
+        imagesLoaded = true;
+        
+        // Clear the simulator
+        clearInterval(interval);
+        
+        // Fast finish to 100
+        const finishInterval = setInterval(() => {
+            if (loadValue < 100) {
+                loadValue++;
+                counter.textContent = loadValue;
+            } else {
+                clearInterval(finishInterval);
+                
+                // 3. Trigger Exit Animation
+                setTimeout(() => {
+                    preloader.classList.add('finished');
+                    body.classList.remove('loading'); // Unlock scroll
+                    
+                    // Optional: Trigger Home Title Animation here if you want perfect timing
+                    const heroTitle = document.querySelector('.hero-title');
+                    if(heroTitle) heroTitle.style.animationPlayState = 'running';
+                    
+                }, 500); // Slight pause at 100 before lifting
+            }
+        }, 10); // Super fast count to 100
+    });
+
+    // ... REST OF YOUR EXISTING CODE (Cursor, Transitions, etc.) ...
     // --- 1. CURSOR LOGIC ---
     const dot = document.querySelector('[data-cursor-dot]');
     const outline = document.querySelector('[data-cursor-outline]');
