@@ -2,7 +2,7 @@
 :root {
     --bg: #0b0b0b;
     --text: #e1e1e1;
-    --accent: #ff3333; /* Striking Red for minimal accents */
+    --accent: #ff3333; 
     --gray: #444;
     --font-display: 'Syne', sans-serif;
     --font-body: 'Space Grotesk', sans-serif;
