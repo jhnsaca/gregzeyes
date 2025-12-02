@@ -97,21 +97,43 @@ body.menu-active .burger-line.bottom { transform: rotate(-45deg) translate(5px, 
 
 .menu-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: #111; z-index: 1500;
+    
+    /* CHANGED: Pure White Background */
+    background: #ffffff; 
+    
+    z-index: 1500;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
 }
+
 body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 
 .menu-links { display: flex; flex-direction: column; gap: 20px; text-align: center; }
 .menu-link {
-    font-family: var(--font-head); font-size: clamp(2rem, 6vw, 5rem);
-    color: #444; transition: 0.4s; position: relative;
+    font-family: var(--font-head); 
+    font-size: clamp(2rem, 6vw, 5rem);
+    
+    /* CHANGED: Solid Black Text */
+    color: #000000; 
+    
+    transition: 0.4s; 
+    position: relative;
+    text-decoration: none;
 }
-.menu-link:hover { color: #fff; transform: translateX(10px); }
+.menu-link:hover { 
+    /* CHANGED: On hover, text becomes hollow (Outline style) */
+    color: transparent; 
+    -webkit-text-stroke: 2px #000;
+    transform: translateX(10px); 
+}
+
 .menu-footer {
     position: absolute; bottom: 40px; display: flex; gap: 30px;
-    font-size: 0.8rem; color: #666; text-transform: uppercase;
+    
+    /* CHANGED: Darker gray for visibility on white */
+    color: #555; 
+    
+    font-size: 0.8rem; text-transform: uppercase;
 }
 
 /* --- 6. HERO SECTION --- */
