@@ -503,4 +503,7 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
         font-size: 22vw; 
         line-height: 0.8;
     }
+.hero-sub {
+font-size: clamp(0.9rem, 1.5vw, 1.2rem); letter-spacing: 4px; text-transform: uppercase;
+}
 }
