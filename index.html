@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GREGOIRE THIBAUT | VISUALS</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonts: Cormorant Garamond (Serif) & Manrope (Sans) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,500&family=Manrope:wght@200;300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- === PRELOADER === -->
-<div class="preloader">
-    <div class="loader-content">
-        <div class="counter">0</div>
-        <div class="loader-text">CONSTRUCTING SILENCE</div>
+
+    <!-- === 0. PRELOADER === -->
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="counter">0</div>
+            <div class="loader-text">CONSTRUCTING SILENCE</div>
+        </div>
     </div>
-</div>
-    <!-- 1. TEXTURE & CURSOR -->
+
+    <!-- === 1. UI ELEMENTS === -->
     <div class="noise"></div>
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- 2. THE TRANSITION CURTAIN (The Award Winning Effect) -->
+    <!-- Page Transition Curtain -->
     <div class="curtain">
         <div class="curtain-content">
             <span class="curtain-name">GREGOIRE THIBAUT</span>
@@ -31,7 +33,7 @@
         </div>
     </div>
 
-    <!-- 3. NAVIGATION (Top Right) -->
+    <!-- Navigation -->
     <nav>
         <div class="logo nav-link" data-target="home">GT.</div>
         <div class="menu-items">
@@ -41,39 +43,55 @@
         </div>
     </nav>
 
-    <!-- === PAGE: WORK (Vertical Grid) === -->
+    <!-- === 2. MAIN CONTENT === -->
+    <main id="main-container">
+
+        <!-- >>> SECTION: HOME (The Intro) <<< -->
+        <section id="home" class="page active">
+            <div class="home-bg"></div> <!-- Uses lau-danse-forest.jpg -->
+            <div class="hero-content">
+                <p class="hero-label fade-up">Portfolio 2025</p>
+                <h1 class="hero-title fade-up-delay">Silence <br> <span class="italic">Is Loud.</span></h1>
+            </div>
+            
+            <div class="enter-trigger nav-link" data-target="work">
+                <span>Enter The Gallery</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- >>> SECTION: WORK <<< -->
         <section id="work" class="page">
             <div class="container">
                 
-                <!-- Category: PHOTOGRAPHY -->
                 <div class="work-header">
                     <h2>01. STILLS</h2>
                     <p>Frozen moments in time.</p>
                 </div>
                 
                 <div class="gallery-grid">
-                    <!-- Photo 1 (Tall): Model Koegel - High Fashion -->
+                    <!-- High Fashion / Editorial -->
                     <div class="grid-item tall">
-                        <img src="assets/img/model-koegel.jpg" alt="Model Koegel">
+                        <img src="assets/img/model-koegel.jpg" alt="Model">
                         <div class="hover-info">Editorial</div>
                     </div>
-                    <!-- Photo 2 (Wide): Cowboy Chili - Documentary -->
+                    <!-- Documentary / Raw -->
                     <div class="grid-item">
-                        <img src="assets/img/cowboy-chili.jpg" alt="Cowboy Chili">
-                        <div class="hover-info">Origins</div>
+                        <img src="assets/img/cowboy-chili.jpg" alt="Chili">
+                        <div class="hover-info">Raw</div>
                     </div>
-                    <!-- Photo 3 (Wide): Lau Jump - Motion/Art -->
+                    <!-- Artistic / Motion -->
                     <div class="grid-item">
-                        <img src="assets/img/lau-jump.jpg" alt="Lau Jump">
+                        <img src="assets/img/lau-jump.jpg" alt="Jump">
                         <div class="hover-info">Freedom</div>
                     </div>
-                    <!-- Photo 4 (Tall): Peru Man - Portraiture -->
+                    <!-- Portraiture -->
                     <div class="grid-item tall">
-                        <img src="assets/img/peru-man.jpg" alt="Peru Man">
+                        <img src="assets/img/peru-man.jpg" alt="Peru">
                         <div class="hover-info">Character</div>
                     </div>
                     
-                    <!-- Bonus Row (Optional - keeping the grid balanced) -->
+                    <!-- Texture / Details -->
                     <div class="grid-item">
                         <img src="assets/img/enfant-as.jpg" alt="Enfant">
                         <div class="hover-info">Innocence</div>
@@ -86,30 +104,28 @@
 
                 <div class="spacer"></div>
 
-                <!-- Category: VIDEO -->
                 <div class="work-header">
                     <h2>02. MOTION</h2>
                     <p>Cinema and visual storytelling.</p>
                 </div>
 
                 <div class="video-grid">
-                    <!-- Video 1: Using "Img Resto" as cover -->
+                    <!-- Video 1 -->
                     <div class="video-item">
-                        <!-- Added 'poster' attribute to show your photo before video loads -->
                         <video poster="assets/img/img-resto.jpg" autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-05/large_watermarked/190516_06_Bussan-m_09_preview.mp4"></video>
                         <div class="hover-info">Lifestyle</div>
                     </div>
-                    <!-- Video 2: Using "Lau Cygne" as cover -->
+                    <!-- Video 2 -->
                     <div class="video-item">
                         <video poster="assets/img/lau-cygne.jpg" autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2015-08/large_watermarked/Abstract_Light_Leak_Transition_03_preview.mp4"></video>
                         <div class="hover-info">Artistic</div>
                     </div>
-                    <!-- Video 3: Using "Bolivie Mural" as cover -->
+                    <!-- Video 3 (Wide) -->
                     <div class="video-item full-width">
                         <video poster="assets/img/bolivie-mural.jpg" autoplay muted loop playsinline src="https://joy1.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4"></video>
                         <div class="hover-info">Documentary</div>
                     </div>
-                    <!-- Video 4: Using "Lau Robe" as cover -->
+                    <!-- Video 4 -->
                     <div class="video-item">
                         <video poster="assets/img/lau-robe.jpg" autoplay muted loop playsinline src="https://cdn.coverr.co/videos/coverr-walking-in-a-forest-4433/1080p.mp4"></video>
                         <div class="hover-info">Music Video</div>
@@ -125,41 +141,40 @@
             </div>
         </section>
 
-     <!-- === PAGE: ESSENCE === -->
-<section id="essence" class="page">
-    <div class="essence-wrapper">
-        <div class="essence-bg"></div>
-        
-        <div class="essence-content">
-            
-            <!-- 1. HERO (Centered Title) -->
-            <div class="essence-hero">
-                <h1 class="artist-name">GREGOIRE<br>THIBAUT</h1>
-                <div class="scroll-instruction">
-                    <span>Discover the Mind</span>
-                    <div class="scrolldown-line"></div>
-                </div>
-            </div>
-
-            <!-- 2. NARRATIVE (Scroll Content) -->
-            <div class="essence-narrative-flow">
-                <h2 class="blend-text">I DO NOT<br>TAKE PHOTOS.</h2>
+        <!-- >>> SECTION: ESSENCE <<< -->
+        <section id="essence" class="page">
+            <div class="essence-wrapper">
+                <div class="essence-bg"></div> <!-- Uses lau-main.jpg -->
                 
-                <div class="essence-text-block">
-                    <p>I capture the breath between seconds. <br>In a world of noise, I offer silence.</p>
-                    <p>My work is a fusion of raw emotion and calculated precision. When you look at my work, I don't want you to see a picture. I want you to feel a memory that isn't yours.</p>
+                <div class="essence-content">
+                    <!-- Hero View -->
+                    <div class="essence-hero">
+                        <h1 class="artist-name">GREGOIRE<br>THIBAUT</h1>
+                        <div class="scroll-instruction">
+                            <span>Discover the Mind</span>
+                            <div class="scrolldown-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- Scroll Reveal View -->
+                    <div class="essence-narrative-flow">
+                        <h2 class="blend-text">I DO NOT<br>TAKE PHOTOS.</h2>
+                        
+                        <div class="essence-text-block">
+                            <p>I capture the breath between seconds. <br>In a world of noise, I offer silence.</p>
+                            <p>My work is a fusion of raw emotion and calculated precision. When you look at my work, I don't want you to see a picture. I want you to feel a memory that isn't yours.</p>
+                            <img src="assets/img/img-profil.jpg" class="profile-mini" alt="Profile">
+                        </div>
+
+                        <h2 class="blend-text bottom">I CAPTURE<br>SOULS.</h2>
+                    </div>
                 </div>
-
-                <h2 class="blend-text bottom">I CAPTURE<br>SOULS.</h2>
             </div>
+        </section>
 
-        </div>
-    </div>
-</section>
-
-        <!-- === PAGE: BOOK NOW (Emotion) === -->
+        <!-- >>> SECTION: CONTACT <<< -->
         <section id="contact" class="page">
-            <div class="contact-bg"></div>
+            <div class="contact-bg"></div> <!-- Uses chili-village.jpg -->
             <div class="contact-wrapper">
                 <div class="contact-left">
                     <h2 class="emotional-title">Let's Create<br><span class="italic">History.</span></h2>
@@ -168,9 +183,9 @@
                     <div class="contact-details">
                         <a href="mailto:contact@gregoirethibaut.com">contact@gregoirethibaut.com</a>
                         <div class="socials">
-                            <a href="#">IG</a>
-                            <a href="#">LN</a>
-                            <a href="#">BE</a>
+                            <a href="#">Instagram</a>
+                            <a href="#">LinkedIn</a>
+                            <a href="#">Behance</a>
                         </div>
                     </div>
                 </div>
