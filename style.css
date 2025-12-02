@@ -215,21 +215,80 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 .s-name { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 4rem); font-weight: 700; }
 .s-detail { font-size: 0.9rem; color: #aaa; text-transform: uppercase; }
 
-/* --- 10. CONTACT --- */
+/* --- 10. CONTACT (Updated) --- */
 #contact {
-    min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center;
-    background: #000;
+    min-height: 90vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    position: relative; /* Essential for the background positioning */
+    background: #000;   /* Base color */
+    overflow: hidden;
 }
+
+/* The Background Image */
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/img/chili-village.jpg') center/cover no-repeat;
+    
+    /* Cinematic Effects */
+    opacity: 0.4; /* Low opacity to keep it dark */
+    filter: grayscale(100%) contrast(1.2); /* Black & White, High Contrast */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* The Text Content (Must be on top of the image) */
+.contact-center {
+    position: relative;
+    z-index: 2; /* Lifts the text above the background */
+}
+
 .cta-text {
-    font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin: 40px 0;
+    font-size: clamp(3rem, 8vw, 6rem); 
+    line-height: 0.9; 
+    margin: 40px 0;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8); /* Shadow for readability */
 }
+
 .email-btn {
-    font-size: clamp(1rem, 2vw, 1.5rem); border: 1px solid #fff; padding: 15px 40px;
-    border-radius: 50px; transition: 0.3s; display: inline-block;
+    font-size: clamp(1rem, 2vw, 1.5rem); 
+    border: 1px solid #fff; 
+    padding: 15px 40px;
+    border-radius: 50px; 
+    transition: 0.3s; 
+    display: inline-block;
+    backdrop-filter: blur(5px); /* subtle glass effect */
 }
-.email-btn:hover { background: #fff; color: #000; }
-.footer-links { margin-top: 60px; display: flex; justify-content: center; gap: 30px; }
-.footer-links a { color: #666; font-size: 0.8rem; text-transform: uppercase; }
+
+.email-btn:hover { 
+    background: #fff; 
+    color: #000; 
+}
+
+.footer-links { 
+    margin-top: 60px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+}
+
+.footer-links a { 
+    color: #aaa; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
 
 /* MOBILE RESPONSIVE TWEAKS */
 @media (max-width: 768px) {
