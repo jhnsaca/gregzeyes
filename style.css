@@ -97,10 +97,7 @@ body.menu-active .burger-line.bottom { transform: rotate(-45deg) translate(5px, 
 
 .menu-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    
-    /* CHANGED: Pure White Background */
-    background: #ffffff; 
-    
+    background: #ffffff; /* Pure White Background */
     z-index: 1500;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
@@ -112,16 +109,12 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 .menu-link {
     font-family: var(--font-head); 
     font-size: clamp(2rem, 6vw, 5rem);
-    
-    /* CHANGED: Solid Black Text */
-    color: #000000; 
-    
+    color: #000000; /* Solid Black Text */
     transition: 0.4s; 
     position: relative;
     text-decoration: none;
 }
 .menu-link:hover { 
-    /* CHANGED: On hover, text becomes hollow (Outline style) */
     color: transparent; 
     -webkit-text-stroke: 2px #000;
     transform: translateX(10px); 
@@ -129,10 +122,7 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 
 .menu-footer {
     position: absolute; bottom: 40px; display: flex; gap: 30px;
-    
-    /* CHANGED: Darker gray for visibility on white */
     color: #555; 
-    
     font-size: 0.8rem; text-transform: uppercase;
 }
 
@@ -147,27 +137,40 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     width: 100%; height: 110%; object-fit: cover; filter: brightness(0.6);
 }
 .hero-content { position: relative; z-index: 2; text-align: center; }
+
+/* >>> CORRECTED FOR WIDE FONT (SYNCOPATE) <<< */
 .hero-title {
-    /* New Font: Six Caps */
-    font-family: 'Six Caps', sans-serif;
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
     
-    /* Since it's condensed, we make it MUCH bigger */
-    font-size: clamp(5rem, 18vw, 15rem); 
+    /* Reduced size because 'Syncopate' is very wide */
+    font-size: clamp(2rem, 8vw, 6rem); 
     
-    line-height: 0.85; 
+    line-height: 1.1; 
     margin-bottom: 20px;
     width: 100%;
+    
+    /* Negative letter spacing helps wide fonts look punchy */
+    letter-spacing: -2px; 
+    
     padding: 0 10px;
     box-sizing: border-box;
-    
-    /* Slight letter spacing adds elegance to condensed fonts */
-    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-/* Ensure the outline works perfectly with the new font */
 .outline {
     color: transparent; 
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1.5px #fff;
+}
+
+/* Updated Subtitle to contrast with the wide title */
+.hero-sub {
+    font-family: 'Space Grotesk', sans-serif; 
+    font-size: clamp(0.8rem, 1vw, 1rem); 
+    letter-spacing: 8px; /* Wide spacing */
+    text-transform: uppercase;
+    margin-top: 20px;
+    opacity: 0.8;
 }
 
 /* --- 7. WORK SECTION (Native Smooth Scroll) --- */
@@ -177,12 +180,10 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     color: var(--gray); font-family: var(--font-body);
 }
 
-/* The Magic Scroll Container */
 .gallery-container {
     width: 100%;
-    overflow-x: auto; /* Native scroll */
+    overflow-x: auto; 
     padding-bottom: 50px;
-    /* Hide Scrollbar */
     scrollbar-width: none; -ms-overflow-style: none;
 }
 .gallery-container::-webkit-scrollbar { display: none; }
@@ -191,7 +192,7 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     display: flex; gap: 40px; padding: 0 5%; width: max-content;
 }
 .gallery-item {
-    width: clamp(300px, 40vw, 600px); /* Responsive card width */
+    width: clamp(300px, 40vw, 600px); 
     flex-shrink: 0; transition: transform 0.3s;
 }
 .gallery-item:hover { transform: scale(0.98); }
@@ -205,115 +206,60 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 .item-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
 .item-info p { color: var(--gray); font-size: 0.9rem; text-transform: uppercase; }
 
-/* --- 8. PROFILE SECTION (Updated Full Background) --- */
+/* --- 8. PROFILE SECTION (Full Background) --- */
 #about {
     position: relative;
-    min-height: 100vh; /* Takes the full height of the screen */
+    min-height: 100vh; 
     width: 100%;
-    
-    /* The Background Image */
     background: url('assets/img-profil.jpg') no-repeat center center;
     background-size: cover;
-    
-    /* Creates the parallax effect (image stays still while scrolling) */
     background-attachment: fixed; 
-    
-    /* Flexbox to center the text */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    
     padding: 100px 5%;
 }
 
-/* The Dark Overlay (Crucial for readability) */
 #about::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Gradient: darker at the bottom for text readability */
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
     z-index: 1;
 }
 
 .about-content {
-    position: relative;
-    z-index: 2; /* Ensures text is above the overlay */
-    max-width: 800px;
+    position: relative; z-index: 2; max-width: 800px;
 }
-
 .tiny-label {
-    font-size: 0.8rem;
-    color: var(--accent); /* Gold color */
-    margin-bottom: 20px;
-    display: block;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 0.8rem; color: var(--accent); margin-bottom: 20px;
+    display: block; letter-spacing: 2px; text-transform: uppercase;
 }
-
 .about-headline {
-    font-size: clamp(2.5rem, 6vw, 6rem); /* Responsive huge text */
-    line-height: 0.95;
-    margin-bottom: 40px;
-    color: #ffffff;
-    /* Shadow ensures text pops even on bright parts of the photo */
+    font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.95;
+    margin-bottom: 40px; color: #ffffff;
     text-shadow: 0 10px 30px rgba(0,0,0,0.8); 
 }
-
 .about-text {
-    font-size: clamp(1rem, 1.5vw, 1.3rem);
-    color: #e0e0e0; /* Light grey for softness */
-    margin-bottom: 50px;
-    line-height: 1.6;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
+    font-size: clamp(1rem, 1.5vw, 1.3rem); color: #e0e0e0; margin-bottom: 50px;
+    line-height: 1.6; margin-left: auto; margin-right: auto; max-width: 600px;
 }
-
 .stats {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
-    padding-top: 30px;
-    margin-top: 40px;
+    display: flex; justify-content: center; gap: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 30px; margin-top: 40px;
 }
+.stats h4 { font-size: 2.5rem; color: #fff; margin-bottom: 5px; }
+.stats span { font-size: 0.8rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
 
-.stats h4 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 5px;
-}
-
-.stats span {
-    font-size: 0.8rem;
-    color: #aaa;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Mobile Tweak: Turn off fixed background on phones for better performance */
 @media (max-width: 768px) {
-    #about {
-        background-attachment: scroll;
-    }
+    #about { background-attachment: scroll; }
 }
 
-/* --- 9. SERVICES (Background Swap) --- */
-/* --- 9. SERVICES (Accordion Style) --- */
+/* --- 9. SERVICES (Accordion) --- */
 #services {
-    position: relative; 
-    padding: 100px 5%; 
-    border-top: 1px solid #333;
-    min-height: 100vh; 
-    display: flex; 
-    align-items: center;
+    position: relative; padding: 100px 5%; border-top: 1px solid #333;
+    min-height: 100vh; display: flex; align-items: center;
 }
-
 .service-bg {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover; background-position: center;
@@ -321,167 +267,64 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     z-index: 1; filter: brightness(0.3);
 }
 .service-bg.active { opacity: 1; }
-
 .service-container { position: relative; z-index: 2; width: 100%; }
-
 .service-list { 
-    list-style: none; 
-    border-top: 1px solid rgba(255,255,255,0.2); 
-    margin-top: 50px;
+    list-style: none; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 50px;
 }
-
 .service-item {
-    border-bottom: 1px solid rgba(255,255,255,0.2); 
-    cursor: pointer; 
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
+    border-bottom: 1px solid rgba(255,255,255,0.2); cursor: pointer; 
+    transition: 0.3s; display: flex; flex-direction: column;
 }
-
-.service-item:hover { 
-    border-color: #fff; 
-    padding-left: 20px; /* Slight shift to right on hover */
-}
-
-/* The Top Row (Name + Arrow) */
+.service-item:hover { border-color: #fff; padding-left: 20px; }
 .service-top {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 30px 0;
+    display: flex; justify-content: space-between; align-items: center; padding: 30px 0;
 }
-
-.s-name { 
-    font-family: var(--font-head); 
-    font-size: clamp(2rem, 4vw, 4rem); 
-    font-weight: 700; 
-}
-
+.s-name { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 4rem); font-weight: 700; }
 .s-arrow {
-    font-size: 2rem;
-    transform: rotate(0deg);
-    transition: transform 0.4s ease;
+    font-size: 2rem; transform: rotate(0deg); transition: transform 0.4s ease;
 }
-
-/* Rotate arrow when hovering */
-.service-item:hover .s-arrow {
-    transform: rotate(45deg); 
-    color: var(--accent);
-}
-
-/* The Hidden Block (Animation Magic) */
+.service-item:hover .s-arrow { transform: rotate(45deg); color: var(--accent); }
 .service-hidden-block {
-    display: grid;
-    grid-template-rows: 0fr; /* Start Closed */
-    transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Elegant Ease */
-    opacity: 0.5;
+    display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1); opacity: 0.5;
 }
-
 .service-item:hover .service-hidden-block {
-    grid-template-rows: 1fr; /* Open on Hover */
-    opacity: 1;
-    padding-bottom: 30px;
+    grid-template-rows: 1fr; opacity: 1; padding-bottom: 30px;
 }
-
-.block-inner {
-    overflow: hidden; /* Essential for the animation */
-}
-
+.block-inner { overflow: hidden; }
 .block-inner p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.1rem; max-width: 600px; color: #ccc; line-height: 1.6; margin-bottom: 15px;
 }
-
 .tags {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: var(--accent);
-    letter-spacing: 1px;
+    font-size: 0.8rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px;
 }
-
-/* Mobile Tweaks */
 @media (max-width: 768px) {
     .s-arrow { display: none; }
     .block-inner p { font-size: 1rem; }
 }
 
-/* --- 10. CONTACT (Updated) --- */
+/* --- 10. CONTACT --- */
 #contact {
-    min-height: 90vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    text-align: center;
-    position: relative; /* Essential for the background positioning */
-    background: #000;   /* Base color */
-    overflow: hidden;
+    min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    position: relative; background: #000; overflow: hidden;
 }
-
-/* The Background Image */
 #contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: url('assets/mountain-chili2.jpg') center/cover no-repeat;
-    
-    /* Cinematic Effects */
-    opacity: 0.4; /* Low opacity to keep it dark */
-    filter: grayscale(100%) contrast(1.2); /* Black & White, High Contrast */
-    z-index: 0;
-    pointer-events: none;
+    opacity: 0.4; filter: grayscale(100%) contrast(1.2); z-index: 0; pointer-events: none;
 }
-
-/* The Text Content (Must be on top of the image) */
-.contact-center {
-    position: relative;
-    z-index: 2; /* Lifts the text above the background */
-}
-
+.contact-center { position: relative; z-index: 2; }
 .cta-text {
-    font-size: clamp(3rem, 8vw, 6rem); 
-    line-height: 0.9; 
-    margin: 40px 0;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.8); /* Shadow for readability */
+    font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin: 40px 0;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
-
 .email-btn {
-    font-size: clamp(1rem, 2vw, 1.5rem); 
-    border: 1px solid #fff; 
-    padding: 15px 40px;
-    border-radius: 50px; 
-    transition: 0.3s; 
-    display: inline-block;
-    backdrop-filter: blur(5px); /* subtle glass effect */
+    font-size: clamp(1rem, 2vw, 1.5rem); border: 1px solid #fff; padding: 15px 40px;
+    border-radius: 50px; transition: 0.3s; display: inline-block; backdrop-filter: blur(5px);
 }
-
-.email-btn:hover { 
-    background: #fff; 
-    color: #000; 
-}
-
-.footer-links { 
-    margin-top: 60px; 
-    display: flex; 
-    justify-content: center; 
-    gap: 30px; 
-}
-
-.footer-links a { 
-    color: #aaa; 
-    font-size: 0.8rem; 
-    text-transform: uppercase; 
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #fff;
-}
+.email-btn:hover { background: #fff; color: #000; }
+.footer-links { margin-top: 60px; display: flex; justify-content: center; gap: 30px; }
+.footer-links a { color: #aaa; font-size: 0.8rem; text-transform: uppercase; transition: color 0.3s; }
+.footer-links a:hover { color: #fff; }
 
 /* MOBILE RESPONSIVE TWEAKS */
 @media (max-width: 768px) {
@@ -491,19 +334,14 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     .burger-menu { top: 20px; right: 20px; }
     
     /* Hide custom cursor on touch devices */
-    .cursor-dot, .cursor-circle {
-        display: none !important;
-    }
+    .cursor-dot, .cursor-circle { display: none !important; }
     
-    /* Reset cursor to default for standard interaction */
+    /* Reset cursor to default */
     * { cursor: auto; }
     
     .hero-title { 
-        /* On mobile, we can go huge now because the font is thin */
-        font-size: 22vw; 
-        line-height: 0.8;
+        /* On mobile, use 8vw so the wide font fits the screen */
+        font-size: 8vw; 
+        letter-spacing: -1px;
     }
-.hero-sub {
-font-size: clamp(0.9rem, 1.5vw, 1.2rem); letter-spacing: 4px; text-transform: uppercase;
-}
 }
