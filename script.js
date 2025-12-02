@@ -1,16 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 0. PRELOADER LOGIC (L'Ecran de Chargement) ---
+    // --- 1. PRELOADER & HERO LOGIC ---
     const preloader = document.querySelector('.preloader');
     const counter = document.querySelector('.counter');
     const body = document.body;
 
-    // Bloquer le scroll pendant le chargement
     body.classList.add('loading');
 
     let loadValue = 0;
     
-    // 1. Simulation de progression (pour que ça bouge tout de suite)
+    // Simulate initial loading
     const interval = setInterval(() => {
         if (loadValue < 90) {
             loadValue += Math.floor(Math.random() * 5); 
@@ -19,12 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 100);
 
-    // 2. Attendre que tout le site (images/videos) soit chargé
     window.addEventListener('load', () => {
-        // Arrêter la simulation
         clearInterval(interval);
         
-        // Finir rapidement jusqu'à 100
+        // Fast finish
         const finishInterval = setInterval(() => {
             if (loadValue < 100) {
                 loadValue++;
@@ -32,18 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 clearInterval(finishInterval);
                 
-                // 3. Déclencher l'animation de sortie (Le Rideau se lève)
+                // Lift Curtain
                 setTimeout(() => {
                     if(preloader) preloader.classList.add('finished');
-                    body.classList.remove('loading'); // Réactiver le scroll
-                    
-                }, 500); // Petite pause à 100% avant de lever le rideau
+                    body.classList.remove('loading');
+                }, 500);
             }
-        }, 10); // Compte très vite jusqu'à 100
+        }, 10);
     });
 
 
-    // --- 1. CURSOR LOGIC (Le Curseur Custom) ---
+    // --- 2. CURSOR LOGIC ---
     const dot = document.querySelector('[data-cursor-dot]');
     const outline = document.querySelector('[data-cursor-outline]');
     
@@ -64,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 2. TRANSITION LOGIC (Le Changement de Page) ---
+    // --- 3. PAGE NAVIGATION (SPA Logic) ---
     const navLinks = document.querySelectorAll('.nav-link');
     const curtain = document.querySelector('.curtain');
     const curtainContent = document.querySelector('.curtain-content');
@@ -76,12 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('data-target');
             const targetPage = document.getElementById(targetId);
 
-            if (!targetPage) return; // Sécurité si la page n'existe pas
+            if (!targetPage) return;
 
-            // Si on est déjà sur la page, on ne fait rien
+            // Don't reload if already active (unless it's the logo which usually means "Reset Home")
             if(targetPage.classList.contains('active') && !link.classList.contains('logo')) return;
 
-            // 1. Le Rideau descend
+            // 1. Curtain Rise
             curtain.classList.remove('exit');
             curtain.classList.add('active');
             
@@ -89,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 curtainContent.style.opacity = '1';
             }, 300);
 
-            // 2. On change le contenu derrière le rideau
+            // 2. Change Content Behind Curtain
             setTimeout(() => {
                 window.scrollTo(0,0);
                 
@@ -98,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             }, 1000); 
 
-            // 3. Le Rideau remonte
+            // 3. Curtain Fall
             setTimeout(() => {
                 curtainContent.style.opacity = '0';
             }, 1200);
