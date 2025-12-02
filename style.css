@@ -148,19 +148,26 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 }
 .hero-content { position: relative; z-index: 2; text-align: center; }
 .hero-title {
-   
-    font-size: clamp(2.5rem, 10.5vw, 10rem); 
-    line-height: 0.9; 
+    /* New Font: Six Caps */
+    font-family: 'Six Caps', sans-serif;
+    
+    /* Since it's condensed, we make it MUCH bigger */
+    font-size: clamp(5rem, 18vw, 15rem); 
+    
+    line-height: 0.85; 
     margin-bottom: 20px;
     width: 100%;
-    padding: 0 20px; 
+    padding: 0 10px;
     box-sizing: border-box;
+    
+    /* Slight letter spacing adds elegance to condensed fonts */
+    letter-spacing: 2px;
 }
+
+/* Ensure the outline works perfectly with the new font */
 .outline {
-    color: transparent; -webkit-text-stroke: 1px #fff;
-}
-.hero-sub {
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem); letter-spacing: 4px; text-transform: uppercase;
+    color: transparent; 
+    -webkit-text-stroke: 2px #fff;
 }
 
 /* --- 7. WORK SECTION (Native Smooth Scroll) --- */
@@ -491,6 +498,9 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     /* Reset cursor to default for standard interaction */
     * { cursor: auto; }
     
-    /* Optional: Adjust hero title size slightly for very small phones */
-    .hero-title { font-size: 10vw; padding: 0 10px}
+    .hero-title { 
+        /* On mobile, we can go huge now because the font is thin */
+        font-size: 22vw; 
+        line-height: 0.8;
+    }
 }
