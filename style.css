@@ -383,4 +383,15 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     .s-detail { display: none; }
     .fixed-logo { top: 20px; left: 20px; }
     .burger-menu { top: 20px; right: 20px; }
+    
+    /* Hide custom cursor on touch devices */
+    .cursor-dot, .cursor-circle {
+        display: none !important;
+    }
+    
+    /* Reset cursor to default for standard interaction */
+    * { cursor: auto; }
+    
+    /* Optional: Adjust hero title size slightly for very small phones */
+    .hero-title { font-size: 13vw; }
 }
