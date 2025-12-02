@@ -1,78 +1,99 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. LOADER LOGIC
-    const loader = document.querySelector('.loader-overlay');
-    const counter = document.querySelector('.loader-counter');
-    let count = 0;
+    // --- 1. MINIMAL LOADER LOGIC ---
+    const loaderScreen = document.querySelector('.loader-screen');
+    const fill = document.querySelector('.loader-bar-fill');
+    const percentText = document.querySelector('.loader-percentage');
     
-    // Prevent scrolling during load
-    document.body.style.overflow = 'hidden';
-
-    const loadInterval = setInterval(() => {
-        count += Math.floor(Math.random() * 5) + 1;
-        if(count > 100) count = 100;
+    let loadProgress = 0;
+    
+    // Simulate loading
+    const interval = setInterval(() => {
+        // Random speed
+        loadProgress += Math.floor(Math.random() * 3) + 1;
         
-        // Pad with zeros (001, 050, 100)
-        counter.textContent = count.toString().padStart(3, '0');
+        if (loadProgress > 100) loadProgress = 100;
+        
+        // Update width and text
+        fill.style.width = `${loadProgress}%`;
+        percentText.textContent = `${loadProgress}%`;
 
-        if(count === 100) {
-            clearInterval(loadInterval);
+        if (loadProgress === 100) {
+            clearInterval(interval);
             setTimeout(() => {
-                loader.classList.add('complete');
-                document.body.style.overflow = 'auto'; // Re-enable scroll
-            }, 500);
+                loaderScreen.classList.add('complete');
+                document.body.classList.remove('loading-active');
+            }, 500); // Wait a bit at 100%
         }
-    }, 30); // Speed of counter
+    }, 20); // Speed of loop
 
-    // 2. PARALLAX HERO
-    const heroImg = document.querySelector('.hero-img');
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        // Move image slightly slower than scroll
-        if(heroImg) {
-            heroImg.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
+
+    // --- 2. BURGER MENU LOGIC (Connected) ---
+    const burger = document.querySelector('.burger-menu');
+    const menuLinks = document.querySelectorAll('.menu-link');
+    
+    // Toggle Menu
+    burger.addEventListener('click', () => {
+        document.body.classList.toggle('menu-active');
     });
 
-    // 3. SERVICES HOVER EFFECT (HOLOGRAPHIC CHANGE)
+    // Close menu when clicking a link
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            document.body.classList.remove('menu-active');
+        });
+    });
+
+
+    // --- 3. CUSTOM CURSOR ---
+    const dot = document.querySelector('.cursor-dot');
+    const circle = document.querySelector('.cursor-circle');
+
+    window.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        
+        dot.style.left = `${x}px`;
+        dot.style.top = `${y}px`;
+        
+        // Circle follows with animation via CSS
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+    });
+
+    // Add hover states
+    const hoverables = document.querySelectorAll('a, .service-item, .gallery-item');
+    hoverables.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+    });
+
+
+    // --- 4. SERVICES HOVER (Background Swap) ---
     const serviceItems = document.querySelectorAll('.service-item');
     const serviceBg = document.getElementById('service-bg');
 
     serviceItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            const imgUrl = item.getAttribute('data-img');
-            serviceBg.style.backgroundImage = `url(${imgUrl})`;
+            const img = item.getAttribute('data-image');
+            serviceBg.style.backgroundImage = `url(${img})`;
             serviceBg.classList.add('active');
         });
-
-        // Optional: Remove active class on mouseleave to go back to black
+        
+        // Optional: Reset on leave or keep last image
         // item.addEventListener('mouseleave', () => {
         //     serviceBg.classList.remove('active');
         // });
     });
 
-    // 4. CUSTOM CURSOR
-    const cursor = document.querySelector('.cursor-follower');
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
 
-    // Add hover scale effect
-    const hoverElements = document.querySelectorAll('a, .service-item, .gallery-card');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-    });
-
-    // 5. HORIZONTAL SCROLL CONVERTER (Simple Version)
-    // Converts vertical scroll wheel into horizontal movement only for the work section
-    const trackWrapper = document.querySelector('.gallery-track-wrapper');
-    
-    trackWrapper.addEventListener('wheel', (evt) => {
-        evt.preventDefault();
-        trackWrapper.scrollLeft += evt.deltaY;
+    // --- 5. PARALLAX EFFECT FOR HERO ---
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const parallaxImg = document.querySelector('.parallax-img');
+        if(parallaxImg && scrolled < window.innerHeight) {
+            parallaxImg.style.transform = `translateY(${scrolled * 0.4}px)`;
+        }
     });
 
 });
