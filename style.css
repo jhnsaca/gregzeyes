@@ -126,8 +126,13 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 }
 .hero-content { position: relative; z-index: 2; text-align: center; }
 .hero-title {
-    font-size: clamp(3rem, 12vw, 10rem); /* Perfect scaling */
-    line-height: 0.9; margin-bottom: 20px;
+   
+    font-size: clamp(2.5rem, 10.5vw, 10rem); 
+    line-height: 0.9; 
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 0 20px; 
+    box-sizing: border-box;
 }
 .outline {
     color: transparent; -webkit-text-stroke: 1px #fff;
