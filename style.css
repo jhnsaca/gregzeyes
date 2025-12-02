@@ -176,26 +176,103 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 .item-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
 .item-info p { color: var(--gray); font-size: 0.9rem; text-transform: uppercase; }
 
-/* --- 8. PROFILE SECTION --- */
+/* --- 8. PROFILE SECTION (Updated Full Background) --- */
 #about {
+    position: relative;
+    min-height: 100vh; /* Takes the full height of the screen */
+    width: 100%;
+    
+    /* The Background Image */
+    background: url('assets/img-profil.jpg') no-repeat center center;
+    background-size: cover;
+    
+    /* Creates the parallax effect (image stays still while scrolling) */
+    background-attachment: fixed; 
+    
+    /* Flexbox to center the text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
     padding: 100px 5%;
 }
-.about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
+
+/* The Dark Overlay (Crucial for readability) */
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient: darker at the bottom for text readability */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+    z-index: 1;
 }
-.about-visual img {
-    width: 100%; max-height: 80vh; object-fit: cover;
+
+.about-content {
+    position: relative;
+    z-index: 2; /* Ensures text is above the overlay */
+    max-width: 800px;
 }
-.tiny-label { font-size: 0.8rem; color: var(--accent); margin-bottom: 20px; display: block; }
+
+.tiny-label {
+    font-size: 0.8rem;
+    color: var(--accent); /* Gold color */
+    margin-bottom: 20px;
+    display: block;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .about-headline {
-    font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1; margin-bottom: 40px;
+    font-size: clamp(2.5rem, 6vw, 6rem); /* Responsive huge text */
+    line-height: 0.95;
+    margin-bottom: 40px;
+    color: #ffffff;
+    /* Shadow ensures text pops even on bright parts of the photo */
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8); 
 }
+
 .about-text {
-    font-size: clamp(1rem, 1.5vw, 1.2rem); color: #bbb; margin-bottom: 50px; max-width: 500px;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    color: #e0e0e0; /* Light grey for softness */
+    margin-bottom: 50px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
 }
-.stats { display: flex; gap: 50px; border-top: 1px solid #333; padding-top: 30px; }
-.stats h4 { font-size: 2rem; }
-.stats span { font-size: 0.8rem; color: #666; text-transform: uppercase; }
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+.stats h4 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.stats span {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile Tweak: Turn off fixed background on phones for better performance */
+@media (max-width: 768px) {
+    #about {
+        background-attachment: scroll;
+    }
+}
 
 /* --- 9. SERVICES (Background Swap) --- */
 /* --- 9. SERVICES (Accordion Style) --- */
@@ -393,5 +470,5 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     * { cursor: auto; }
     
     /* Optional: Adjust hero title size slightly for very small phones */
-    .hero-title { font-size: 13vw; }
+    .hero-title { font-size: 10vw; padding: 0 10px}
 }
