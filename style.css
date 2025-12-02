@@ -1,4 +1,4 @@
-/* --- 1. SETUP --- */
+/* --- 1. SETUP & VARS --- */
 :root {
     --bg: #0a0a0a;
     --text: #e6e6e6;
@@ -6,66 +6,6 @@
     --font-head: 'Cormorant Garamond', serif;
     --font-body: 'Manrope', sans-serif;
     --ease: cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/* === PRELOADER (Cinematic Intro) === */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    z-index: 99999; /* Must be on top of everything */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.loader-content {
-    text-align: center;
-    color: var(--text);
-    mix-blend-mode: exclusion;
-}
-
-.counter {
-    font-family: var(--font-head);
-    font-size: 10vw; /* Huge elegant numbers */
-    font-weight: 300;
-    line-height: 1;
-    color: var(--gold);
-    margin-bottom: 20px;
-}
-
-.loader-text {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #555;
-    animation: pulse 2s infinite;
-}
-
-/* The Exit Animation */
-.preloader.finished {
-    transform: translateY(-100%); /* Slides up like a curtain */
-}
-
-/* Prevent scrolling while loading */
-body.loading {
-    overflow: hidden;
-}
-
-@keyframes pulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
-}
-
-/* Mobile Adjustment */
-@media (max-width: 768px) {
-    .counter { font-size: 20vw; }
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
@@ -77,14 +17,25 @@ body {
     overflow-x: hidden;
 }
 
-/* Texture */
+/* === PRELOADER === */
+.preloader {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: #000; z-index: 99999;
+    display: flex; justify-content: center; align-items: center;
+    transition: transform 1.2s var(--ease);
+}
+.loader-content { text-align: center; color: var(--text); mix-blend-mode: exclusion; }
+.counter { font-family: var(--font-head); font-size: 10vw; font-weight: 300; line-height: 1; color: var(--gold); margin-bottom: 20px; }
+.loader-text { font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; animation: pulse 2s infinite; }
+.preloader.finished { transform: translateY(-100%); }
+body.loading { overflow: hidden; }
+
+/* === UI ELEMENTS === */
 .noise {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: url('https://grainy-gradients.vercel.app/noise.svg');
     opacity: 0.04; pointer-events: none; z-index: 900;
 }
-
-/* Custom Cursor */
 .cursor-dot {
     width: 6px; height: 6px; background: white; border-radius: 50%;
     position: fixed; pointer-events: none; z-index: 10000;
@@ -96,274 +47,138 @@ body {
 }
 body.hovering .cursor-outline { width: 60px; height: 60px; background: rgba(255,255,255,0.05); border-color: var(--gold); }
 
-/* --- 2. TRANSITION CURTAIN --- */
-.curtain {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: #000; z-index: 2000;
-    transform: translateY(-100%); /* Start hidden */
-    display: flex; justify-content: center; align-items: center;
-}
-
-.curtain-content {
-    text-align: center; opacity: 0; transition: opacity 0.3s;
-}
-
-.curtain-name {
-    display: block; font-family: var(--font-head); font-size: 2rem; color: var(--gold); letter-spacing: 3px;
-}
-
-.curtain-loading {
-    display: block; font-size: 0.7rem; letter-spacing: 5px; margin-top: 10px; color: #555;
-}
-
-/* Curtain Animation Classes (Triggered by JS) */
-.curtain.active { transform: translateY(0); transition: transform 0.8s var(--ease); }
-.curtain.exit { transform: translateY(100%); transition: transform 0.8s var(--ease); }
-
-/* --- 3. NAVIGATION --- */
+/* === NAVIGATION === */
 nav {
     position: fixed; top: 0; right: 0; width: 100%; padding: 40px 60px;
     display: flex; justify-content: space-between; align-items: center;
     z-index: 1000; mix-blend-mode: difference;
 }
-
 .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; }
-
 .menu-items { display: flex; gap: 40px; }
-
 .nav-link {
     color: white; text-decoration: none; text-transform: uppercase;
     font-size: 0.8rem; letter-spacing: 2px; position: relative;
 }
-
 .nav-link::after {
     content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: white; transition: 0.3s;
 }
 .nav-link:hover::after { width: 100%; }
-
 .highlight-btn { border: 1px solid white; padding: 10px 25px; border-radius: 50px; }
 .highlight-btn:hover { background: white; color: black; }
 .highlight-btn::after { display: none; }
 
-/* --- 4. PAGE LOGIC --- */
-.page {
-    display: none; width: 100%; min-height: 100vh;
-    animation: fadeIn 1s ease;
+/* === CURTAIN TRANSITION === */
+.curtain {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #000; z-index: 2000;
+    transform: translateY(-100%);
+    display: flex; justify-content: center; align-items: center;
 }
+.curtain-content { text-align: center; opacity: 0; transition: opacity 0.3s; }
+.curtain-name { display: block; font-family: var(--font-head); font-size: 2rem; color: var(--gold); letter-spacing: 3px; }
+.curtain-loading { display: block; font-size: 0.7rem; letter-spacing: 5px; margin-top: 10px; color: #555; }
+.curtain.active { transform: translateY(0); transition: transform 0.8s var(--ease); }
+.curtain.exit { transform: translateY(100%); transition: transform 0.8s var(--ease); }
+
+/* === PAGE SYSTEM === */
+.page { display: none; width: 100%; min-height: 100vh; animation: fadeIn 1s ease; }
 .page.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* === PAGE: HOME === */
+/* >>> HOME SECTION <<< */
+#home { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
 .home-bg {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    /* Updated to Forest image for atmosphere */
     background: url('assets/img/lau-danse-forest.jpg') center/cover;
-    filter: brightness(0.6); z-index: -1;
+    filter: brightness(0.5); z-index: -1;
 }
-.hero-title { font-family: var(--font-head); font-size: 7vw; line-height: 0.9; }
+.hero-content { z-index: 2; position: relative; }
+.hero-title { font-family: var(--font-head); font-size: 8vw; line-height: 0.9; text-transform: uppercase; }
 .italic { font-style: italic; color: var(--gold); }
-.hero-label { text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; font-size: 0.9rem; }
-.enter-trigger { margin-top: 50px; display: inline-flex; flex-direction: column; align-items: center; cursor: pointer; }
-.line { width: 1px; height: 50px; background: white; margin-top: 15px; }
+.hero-label { text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; font-size: 0.9rem; opacity: 0.8; }
+.enter-trigger { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: 0.3s; }
+.enter-trigger:hover { color: var(--gold); }
+.line { width: 1px; height: 60px; background: white; margin-top: 15px; animation: pulse 2s infinite; }
 
-/* === PAGE: WORK === */
+/* >>> WORK SECTION <<< */
 #work { padding-top: 150px; padding-bottom: 100px; }
 .container { width: 85%; margin: 0 auto; }
 .work-header { margin-bottom: 50px; border-bottom: 1px solid #333; padding-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
 .work-header h2 { font-family: var(--font-head); font-size: 3rem; }
 .work-header p { font-size: 0.9rem; color: #888; text-transform: uppercase; }
-
-/* Masonry Grid for Photos */
-.gallery-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
-}
+.gallery-grid, .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
 .grid-item { position: relative; overflow: hidden; height: 400px; }
-.grid-item.tall { height: 600px; } /* Makes grid interesting */
+.grid-item.tall { height: 600px; }
 .grid-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.6s var(--ease); }
 .grid-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
-
-/* Video Grid */
-.video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
 .video-item { position: relative; height: 400px; }
 .video-item.full-width { grid-column: span 2; height: 600px; }
 .video-item video { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
 .video-item:hover video { opacity: 1; }
-
 .hover-info {
     position: absolute; bottom: 20px; left: 20px; font-size: 1.5rem; font-family: var(--font-head);
-    opacity: 0; transform: translateY(10px); transition: 0.3s; pointer-events: none;
+    opacity: 0; transform: translateY(10px); transition: 0.3s; pointer-events: none; z-index: 2;
 }
 .grid-item:hover .hover-info, .video-item:hover .hover-info { opacity: 1; transform: translateY(0); }
 .spacer { height: 100px; }
-
 .next-page-trigger { text-align: center; padding: 100px 0; border-top: 1px solid #333; cursor: pointer; }
 .next-page-trigger h2 { font-size: 4rem; font-family: var(--font-head); transition: 0.3s; }
 .next-page-trigger:hover h2 { color: var(--gold); transform: translateX(20px); }
 
-/* === PAGE: ESSENCE (CORRECTED) === */
-#essence {
-    position: relative; 
-    width: 100%;
-    /* We use white background for the text interactions below */
-    background: #fff; 
-}
-
-.essence-wrapper {
-    position: relative; 
-    width: 100%;
-}
-
+/* >>> ESSENCE SECTION <<< */
+#essence { width: 100%; background: #fff; }
+.essence-wrapper { position: relative; width: 100%; }
 .essence-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    /* Updated to Hand image for "Human/Soul" feel */
     background: url('assets/img/lau-main.jpg') center/cover;
-    z-index: 1;
-    filter: brightness(0.7); 
+    z-index: 1; filter: brightness(0.7);
 }
-
-.essence-content {
-    position: relative; 
-    z-index: 2; 
-    width: 100%;
-    /* FIX: Removed the padding-top that was pushing content down */
-    padding-top: 0; 
-}
-
-/* 1. Hero Section (The Landing View) */
-.essence-hero {
-    height: 100vh; /* Forces it to fill exactly one screen */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
+.essence-content { position: relative; z-index: 2; width: 100%; padding-top: 0; }
+.essence-hero { height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .artist-name {
-    font-family: var(--font-head);
-    font-size: 8vw; /* Responsive huge size */
-    line-height: 0.85;
-    color: #ffffff; /* Pure white */
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    margin-bottom: 2rem;
-    /* FIX: Added shadow instead of blend mode for better visibility */
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    animation: fadeInUp 1.5s ease forwards;
-    opacity: 0; /* Starts invisible for animation */
+    font-family: var(--font-head); font-size: 8vw; line-height: 0.85; color: #ffffff;
+    text-transform: uppercase; letter-spacing: -2px; margin-bottom: 2rem;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: fadeInUp 1.5s ease forwards; opacity: 0;
 }
-
 .scroll-instruction {
-    position: absolute;
-    bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    animation: fadeIn 2s ease 1s forwards; /* Delays appearance */
-    opacity: 0;
+    position: absolute; bottom: 50px; display: flex; flex-direction: column; align-items: center;
+    color: rgba(255, 255, 255, 0.8); font-family: var(--font-body); font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 3px; animation: fadeIn 2s ease 1s forwards; opacity: 0;
 }
-
-.scrolldown-line {
-    width: 1px;
-    height: 60px;
-    background: white;
-    margin-top: 15px;
-    animation: growLine 2s infinite;
-    transform-origin: top;
-}
-
-@keyframes growLine {
-    0% { transform: scaleY(0); }
-    50% { transform: scaleY(1); }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* 2. Narrative Flow (The Scroll Down Part) */
+.scrolldown-line { width: 1px; height: 60px; background: white; margin-top: 15px; animation: growLine 2s infinite; transform-origin: top; }
 .essence-narrative-flow {
-    /* Gradient to fade from the image to black */
-    background: linear-gradient(to bottom, transparent 0%, #000 30%); 
-    padding-bottom: 20vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    background: linear-gradient(to bottom, transparent 0%, #000 30%);
+    padding-bottom: 20vh; display: flex; flex-direction: column; align-items: center; width: 100%;
 }
-
 .blend-text {
-    font-size: 12vw; 
-    font-family: var(--font-head); 
-    font-weight: 700; 
-    line-height: 0.8; 
-    text-align: center;
-    /* Black text + Hard Light blend mode = See-through effect */
-    color: #000; 
-    margin: 10vh 0;
-    mix-blend-mode: hard-light; 
-    background-color: white; /* Helps the blend mode calculation */
+    font-size: 12vw; font-family: var(--font-head); font-weight: 700; line-height: 0.8; text-align: center;
+    color: #000; margin: 10vh 0; mix-blend-mode: hard-light; background-color: white;
 }
-
 .essence-text-block {
-    background: rgba(10,10,10, 0.8); 
-    color: #e0e0e0; 
-    padding: 80px 60px; 
-    max-width: 700px; 
-    width: 90%;
-    margin: 0 auto;
-    text-align: center; 
-    line-height: 1.8; 
-    font-size: 1.2rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(10,10,10, 0.8); color: #e0e0e0; padding: 80px 60px; max-width: 700px; width: 90%;
+    margin: 0 auto; text-align: center; line-height: 1.8; font-size: 1.2rem;
+    border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
 }
+.profile-mini { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-top: 30px; border: 1px solid #333; }
+.blend-text.bottom { color: #fff; mix-blend-mode: normal; }
 
-.blend-text.bottom {
-    color: #fff; /* White for the bottom one so it pops on the black bg */
-    mix-blend-mode: normal;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .artist-name { font-size: 15vw; }
-    .blend-text { font-size: 18vw; }
-    .essence-text-block { padding: 40px 20px; }
-}
-
-/* === PAGE: CONTACT (Emotional) === */
-#contact {
-    display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
-}
+/* >>> CONTACT SECTION <<< */
+#contact { display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .contact-bg {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: url('assets/img/chili-village.jpg') center/cover;
-    filter: grayscale(100%) brightness(0.3); /* Dark & Moody */
-    z-index: -1;
+    filter: grayscale(100%) brightness(0.3); z-index: -1;
 }
 .contact-wrapper {
     display: flex; width: 80%; height: 70vh; z-index: 2;
     background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
 }
-.contact-left {
-    flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: space-between;
-    border-right: 1px solid rgba(255,255,255,0.05);
-}
+.contact-left { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(255,255,255,0.05); }
 .emotional-title { font-family: var(--font-head); font-size: 4rem; line-height: 1; }
 .contact-right { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
-
 input {
-    width: 100%; background: transparent; border: none; border-bottom: 1px solid #444;
-    padding: 15px 0; color: white; font-family: var(--font-body); font-size: 1.2rem; margin-bottom: 30px;
-    transition: 0.3s;
+    width: 100%; background: transparent; border: none; border-bottom: 1px solid #444; padding: 15px 0;
+    color: white; font-family: var(--font-body); font-size: 1.2rem; margin-bottom: 30px; transition: 0.3s;
 }
 input:focus { outline: none; border-color: var(--gold); }
 .submit-btn {
@@ -372,6 +187,11 @@ input:focus { outline: none; border-color: var(--gold); }
 }
 .submit-btn:hover { background: var(--gold); }
 
+/* Animation Keyframes */
+@keyframes pulse { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+@keyframes growLine { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
 /* Mobile */
 @media (max-width: 768px) {
     .gallery-grid, .video-grid { grid-template-columns: 1fr; }
@@ -379,4 +199,7 @@ input:focus { outline: none; border-color: var(--gold); }
     .contact-wrapper { flex-direction: column; height: auto; }
     .contact-left, .contact-right { padding: 30px; }
     .blend-text { font-size: 15vw; }
+    .hero-title { font-size: 15vw; }
+    .nav-link { font-size: 0.7rem; }
+    nav { padding: 20px; }
 }
