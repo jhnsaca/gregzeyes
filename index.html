@@ -3,198 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GREGOIRE THIBAUT | VISUAL ARCHITECT</title>
+    <title>GREGOIRE THIBAUT | PORTFOLIO</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonts: SYNE (Bold/Artistic) & SPACE GROTESK (Tech/Modern) -->
+    <!-- Fonts: Syne (Headings) & Space Grotesk (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="loading-state">
+<body class="loading-active">
 
-    <!-- === 0. LOADER (The Shutter) === -->
-    <div class="loader-overlay">
-        <div class="shutter-top"></div>
-        <div class="shutter-bottom"></div>
-        <div class="loader-counter">000</div>
-        <div class="loader-text">INITIALIZING VISION</div>
+    <!-- === 1. MINIMAL LOADER === -->
+    <div class="loader-screen">
+        <div class="loader-wrapper">
+            <div class="loader-name">GREGOIRE THIBAUT</div>
+            <div class="loader-bar-bg">
+                <div class="loader-bar-fill"></div>
+            </div>
+            <div class="loader-percentage">0%</div>
+        </div>
     </div>
 
-    <!-- === 1. UI OVERLAYS === -->
-    <div class="noise-texture"></div>
-    <div class="cursor-follower"></div>
-    
-    <!-- Floating Navigation -->
-    <nav class="fixed-nav">
-        <div class="nav-left">GT&copy;2025</div>
-        <div class="nav-right">
-            <a href="#work">WORK</a>
-            <a href="#services">SERVICES</a>
-            <a href="#about">PROFILE</a>
-            <a href="#contact" class="cta-link">CONTACT</a>
-        </div>
-    </nav>
+    <!-- === 2. UI ELEMENTS === -->
+    <div class="noise-overlay"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
 
-    <!-- === 2. HERO: THE OPENING === -->
-    <header id="hero">
-        <div class="hero-bg-wrapper">
-            <!-- Parallax Background -->
-            <img src="assets/lau-cygne2.jpg" class="hero-img parallax" data-speed="0.5" alt="Atmosphere">
-            <div class="hero-gradient"></div>
+    <!-- Fixed Logo (Top Left) -->
+    <a href="#hero" class="fixed-logo">GT.</a>
+
+    <!-- Burger Menu Trigger (Top Right) -->
+    <div class="burger-menu">
+        <div class="burger-line top"></div>
+        <div class="burger-line bottom"></div>
+    </div>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div class="menu-overlay">
+        <div class="menu-links">
+            <a href="#work" class="menu-link" data-text="Work">Work</a>
+            <a href="#services" class="menu-link" data-text="Services">Services</a>
+            <a href="#about" class="menu-link" data-text="Profile">Profile</a>
+            <a href="#contact" class="menu-link" data-text="Contact">Contact</a>
         </div>
+        <div class="menu-footer">
+            <span>Based in France</span>
+            <span>Available Worldwide</span>
+        </div>
+    </div>
+
+    <!-- === 3. CONTENT === -->
+    <main id="smooth-wrapper">
         
-        <div class="hero-content">
-            <h1 class="glitch-text" data-text="VISUAL">VISUAL</h1>
-            <h1 class="glitch-text indent" data-text="ARCHITECT">ARCHITECT</h1>
-            <div class="hero-meta">
-                <span>Based in France</span>
-                <span>Available Worldwide</span>
+        <!-- HERO SECTION -->
+        <header id="hero">
+            <div class="hero-bg">
+                <img src="assets/img/lau-danse-forest.jpg" alt="Background" class="parallax-img">
             </div>
-        </div>
-    </header>
-
-    <!-- === 3. MY WORK: THE GALLERY (Horizontal Drift) === -->
-    <section id="work">
-        <div class="section-label">SELECTED WORKS (2024-2025)</div>
-        
-        <!-- The Track moves horizontally as you scroll vertically -->
-        <div class="gallery-track-wrapper">
-            <div class="gallery-track">
-                
-                <!-- Item 1 -->
-                <div class="gallery-card">
-                    <div class="img-box">
-                        <img src="assets/model-koegel.jpg" alt="Editorial">
-                    </div>
-                    <div class="card-meta">
-                        <h3>EDITORIAL</h3>
-                        <span>01</span>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="gallery-card">
-                    <div class="img-box">
-                        <img src="assets/cowboy-chili.jpg" alt="Documentary">
-                    </div>
-                    <div class="card-meta">
-                        <h3>ORIGINS</h3>
-                        <span>02</span>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="gallery-card">
-                    <div class="img-box">
-                        <img src="assets/lau-jump.jpg" alt="Motion">
-                    </div>
-                    <div class="card-meta">
-                        <h3>MOTION</h3>
-                        <span>03</span>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="gallery-card">
-                    <div class="img-box">
-                        <img src="assets/peru-man.jpg" alt="Portrait">
-                    </div>
-                    <div class="card-meta">
-                        <h3>CHARACTER</h3>
-                        <span>04</span>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="gallery-card">
-                    <div class="img-box">
-                        <img src="assets/lau-danse-forest.jpg" alt="Art">
-                    </div>
-                    <div class="card-meta">
-                        <h3>ETHEREAL</h3>
-                        <span>05</span>
-                    </div>
-                </div>
-
+            <div class="hero-content">
+                <h1 class="hero-title">VISUAL<br><span class="outline">ARCHITECT</span></h1>
+                <p class="hero-sub">Photography & Art Direction</p>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- === 4. WHO AM I: THE PROFILE === -->
-    <section id="about">
-        <div class="about-container">
-            <div class="about-img-wrapper reveal-img">
-                <img src="assets/img-profil.jpg" alt="Gregoire Thibaut">
+        <!-- WORK SECTION (Smooth Native Horizontal Scroll) -->
+        <section id="work">
+            <div class="section-title">
+                <span>01</span>
+                <h2>SELECTED WORKS</h2>
             </div>
-            <div class="about-text-wrapper">
-                <h2 class="split-text">OBSERVER<br>OF THE UNSEEN.</h2>
-                <p>I don't just hold a camera. I hold a mirror to reality, distorting it just enough to reveal the truth. My process is visceral, raw, and meticulously crafted.</p>
-                <ul class="stats-list">
-                    <li><span>Est.</span> 2018</li>
-                    <li><span>Projects</span> 150+</li>
-                    <li><span>Vibe</span> Cinematic</li>
+            
+            <div class="gallery-container">
+                <!-- Use 'wrapper' to hold items for clean scrolling -->
+                <div class="gallery-wrapper">
+                    
+                    <!-- Item 1 -->
+                    <div class="gallery-item">
+                        <div class="img-holder">
+                            <img src="assets/img/model-koegel.jpg" alt="Editorial">
+                        </div>
+                        <div class="item-info">
+                            <h3>EDITORIAL</h3>
+                            <p>Fashion / 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="gallery-item">
+                        <div class="img-holder">
+                            <img src="assets/img/cowboy-chili.jpg" alt="Documentary">
+                        </div>
+                        <div class="item-info">
+                            <h3>ORIGINS</h3>
+                            <p>Documentary / Chili</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="gallery-item">
+                        <div class="img-holder">
+                            <img src="assets/img/lau-jump.jpg" alt="Motion">
+                        </div>
+                        <div class="item-info">
+                            <h3>MOTION</h3>
+                            <p>Artistic / Movement</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="gallery-item">
+                        <div class="img-holder">
+                            <img src="assets/img/peru-man.jpg" alt="Portrait">
+                        </div>
+                        <div class="item-info">
+                            <h3>CHARACTER</h3>
+                            <p>Portrait / Peru</p>
+                        </div>
+                    </div>
+
+                     <!-- Item 5 -->
+                     <div class="gallery-item">
+                        <div class="img-holder">
+                            <img src="assets/img/lau-cygne2.jpg" alt="Ethereal">
+                        </div>
+                        <div class="item-info">
+                            <h3>ETHEREAL</h3>
+                            <p>Fine Art</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILE SECTION -->
+        <section id="about">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <img src="assets/img/img-profil.jpg" alt="Gregoire">
+                </div>
+                <div class="about-content">
+                    <span class="tiny-label">02 — PROFILE</span>
+                    <h2 class="about-headline">OBSERVER OF<br>THE UNSEEN.</h2>
+                    <p class="about-text">
+                        I don't just hold a camera. I hold a mirror to reality, distorting it just enough to reveal the truth. My process is visceral, raw, and meticulously crafted.
+                    </p>
+                    <div class="stats">
+                        <div>
+                            <h4>150+</h4>
+                            <span>Projects</span>
+                        </div>
+                        <div>
+                            <h4>Global</h4>
+                            <span>Reach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION (Interactive Hover) -->
+        <section id="services">
+            <!-- The background that changes -->
+            <div class="service-bg" id="service-bg"></div>
+            
+            <div class="service-container">
+                <div class="section-title white">
+                    <span>03</span>
+                    <h2>EXPERTISE</h2>
+                </div>
+
+                <ul class="service-list">
+                    <li class="service-item" data-image="assets/img/model-koegel.jpg">
+                        <span class="s-name">Photography</span>
+                        <span class="s-detail">Editorial & Event</span>
+                    </li>
+                    <li class="service-item" data-image="assets/img/img-resto.jpg">
+                        <span class="s-name">Video Production</span>
+                        <span class="s-detail">Commercial & Clips</span>
+                    </li>
+                    <li class="service-item" data-image="assets/img/lau-robe.jpg">
+                        <span class="s-name">Content Creation</span>
+                        <span class="s-detail">Social Media Strategy</span>
+                    </li>
+                    <li class="service-item" data-image="assets/img/bolivie-mural.jpg">
+                        <span class="s-name">Community Mgmt</span>
+                        <span class="s-detail">Growth & Engagement</span>
+                    </li>
                 </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- === 5. MY SERVICES: HOLOGRAPHIC MENU === -->
-    <section id="services">
-        <!-- Dynamic Background Container -->
-        <div class="service-bg-layer" id="service-bg"></div>
-        <div class="service-overlay"></div>
-
-        <div class="service-content">
-            <div class="section-label">EXPERTISE</div>
-            
-            <ul class="service-list">
-                <li class="service-item" data-img="assets/img/model-koegel.jpg">
-                    <span class="s-num">01</span>
-                    <span class="s-name">Photography</span>
-                    <span class="s-tags">Editorial / Portrait / Event</span>
-                </li>
-                <li class="service-item" data-img="assets/img/img-resto.jpg">
-                    <span class="s-num">02</span>
-                    <span class="s-name">Video Production</span>
-                    <span class="s-tags">Commercial / Clips / Story</span>
-                </li>
-                <li class="service-item" data-img="assets/img/lau-robe.jpg">
-                    <span class="s-num">03</span>
-                    <span class="s-name">Content Creation</span>
-                    <span class="s-tags">Reels / TikTok / Shorts</span>
-                </li>
-                <li class="service-item" data-img="assets/img/bolivie-mural.jpg">
-                    <span class="s-num">04</span>
-                    <span class="s-name">Community Mgmt</span>
-                    <span class="s-tags">Strategy / Engagement / Growth</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- === 6. CONTACT: THE FINALE === -->
-    <section id="contact">
-        <div class="marquee-wrapper">
-            <div class="marquee-content">
-                LETS WORK TOGETHER — CREATE LEGACY — LETS WORK TOGETHER — CREATE LEGACY — 
-            </div>
-        </div>
-
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>CONTACT</h3>
-                <a href="mailto:contact@gregoirethibaut.com" class="giant-mail">contact@<br>gregoirethibaut.com</a>
-                <div class="social-row">
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="contact-center">
+                <p class="tiny-label">04 — NEXT STEPS</p>
+                <h2 class="cta-text">LET'S BUILD<br>YOUR LEGACY</h2>
+                <a href="mailto:contact@gregoirethibaut.com" class="email-btn">
+                    contact@gregoirethibaut.com
+                </a>
+                <div class="footer-links">
                     <a href="#">Instagram</a>
                     <a href="#">LinkedIn</a>
                     <a href="#">Behance</a>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 GREGOIRE THIBAUT.
-            </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 </body>
