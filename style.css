@@ -213,7 +213,7 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     width: 100%;
     
     /* Background Image */
-    background: url('assets/img/img-profil.jpg') no-repeat center center;
+    background: url('assets/img-profil.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed; 
     
