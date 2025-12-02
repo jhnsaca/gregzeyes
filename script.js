@@ -1,66 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 0. PRELOADER LOGIC ---
+    // --- 0. PRELOADER LOGIC (L'Ecran de Chargement) ---
     const preloader = document.querySelector('.preloader');
     const counter = document.querySelector('.counter');
     const body = document.body;
 
-    // Lock scroll immediately
+    // Bloquer le scroll pendant le chargement
     body.classList.add('loading');
 
     let loadValue = 0;
-    let imagesLoaded = false;
-
-    // 1. Simulate progress (so it doesn't stay at 0 if loading is fast)
+    
+    // 1. Simulation de progression (pour que ça bouge tout de suite)
     const interval = setInterval(() => {
         if (loadValue < 90) {
-            loadValue += Math.floor(Math.random() * 5); // Random increment
-            counter.textContent = loadValue;
+            loadValue += Math.floor(Math.random() * 5); 
+            if(loadValue > 90) loadValue = 90;
+            if(counter) counter.textContent = loadValue;
         }
     }, 100);
 
-    // 2. Wait for the actual window load (images/videos)
+    // 2. Attendre que tout le site (images/videos) soit chargé
     window.addEventListener('load', () => {
-        imagesLoaded = true;
-        
-        // Clear the simulator
+        // Arrêter la simulation
         clearInterval(interval);
         
-        // Fast finish to 100
+        // Finir rapidement jusqu'à 100
         const finishInterval = setInterval(() => {
             if (loadValue < 100) {
                 loadValue++;
-                counter.textContent = loadValue;
+                if(counter) counter.textContent = loadValue;
             } else {
                 clearInterval(finishInterval);
                 
-                // 3. Trigger Exit Animation
+                // 3. Déclencher l'animation de sortie (Le Rideau se lève)
                 setTimeout(() => {
-                    preloader.classList.add('finished');
-                    body.classList.remove('loading'); // Unlock scroll
+                    if(preloader) preloader.classList.add('finished');
+                    body.classList.remove('loading'); // Réactiver le scroll
                     
-                    // Optional: Trigger Home Title Animation here if you want perfect timing
-                    const heroTitle = document.querySelector('.hero-title');
-                    if(heroTitle) heroTitle.style.animationPlayState = 'running';
-                    
-                }, 500); // Slight pause at 100 before lifting
+                }, 500); // Petite pause à 100% avant de lever le rideau
             }
-        }, 10); // Super fast count to 100
+        }, 10); // Compte très vite jusqu'à 100
     });
 
-    // ... REST OF YOUR EXISTING CODE (Cursor, Transitions, etc.) ...
-    // --- 1. CURSOR LOGIC ---
+
+    // --- 1. CURSOR LOGIC (Le Curseur Custom) ---
     const dot = document.querySelector('[data-cursor-dot]');
     const outline = document.querySelector('[data-cursor-outline]');
     
-    window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-        dot.style.left = `${posX}px`;
-        dot.style.top = `${posY}px`;
-        outline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-    });
+    if(dot && outline) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            dot.style.left = `${posX}px`;
+            dot.style.top = `${posY}px`;
+            outline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+        });
+    }
 
     const hoverables = document.querySelectorAll('a, .nav-link, button, .grid-item');
     hoverables.forEach(el => {
@@ -68,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
     });
 
-    // --- 2. TRANSITION LOGIC (The "Award Winning" Part) ---
+
+    // --- 2. TRANSITION LOGIC (Le Changement de Page) ---
     const navLinks = document.querySelectorAll('.nav-link');
     const curtain = document.querySelector('.curtain');
     const curtainContent = document.querySelector('.curtain-content');
@@ -80,10 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('data-target');
             const targetPage = document.getElementById(targetId);
 
-            // If we are already on the page (and not clicking logo), do nothing
+            if (!targetPage) return; // Sécurité si la page n'existe pas
+
+            // Si on est déjà sur la page, on ne fait rien
             if(targetPage.classList.contains('active') && !link.classList.contains('logo')) return;
 
-            // 1. Curtain Rise
+            // 1. Le Rideau descend
             curtain.classList.remove('exit');
             curtain.classList.add('active');
             
@@ -91,25 +89,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 curtainContent.style.opacity = '1';
             }, 300);
 
-            // 2. Change Page Content (Behind the curtain)
+            // 2. On change le contenu derrière le rideau
             setTimeout(() => {
-                // Scroll to top
                 window.scrollTo(0,0);
                 
-                // Switch Classes
                 pages.forEach(p => p.classList.remove('active'));
                 targetPage.classList.add('active');
 
-            }, 1000); // Wait 1 second
+            }, 1000); 
 
-            // 3. Curtain Fall
+            // 3. Le Rideau remonte
             setTimeout(() => {
                 curtainContent.style.opacity = '0';
             }, 1200);
 
             setTimeout(() => {
                 curtain.classList.remove('active');
-                curtain.classList.add('exit'); // Slides down or up away
+                curtain.classList.add('exit'); 
             }, 1500);
         });
     });
