@@ -9,12 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Simulate loading
     const interval = setInterval(() => {
-        // Random speed
         loadProgress += Math.floor(Math.random() * 3) + 1;
-        
         if (loadProgress > 100) loadProgress = 100;
         
-        // Update width and text
         fill.style.width = `${loadProgress}%`;
         percentText.textContent = `${loadProgress}%`;
 
@@ -23,53 +20,57 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 loaderScreen.classList.add('complete');
                 document.body.classList.remove('loading-active');
-            }, 500); // Wait a bit at 100%
+            }, 500);
         }
-    }, 20); // Speed of loop
+    }, 20);
 
+    // --- 2. LOGO FADE ON SCROLL (New Feature) ---
+    const logo = document.getElementById('logo-trigger');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            // Become transparent when scrolling down to avoid clashing with text
+            logo.style.opacity = '0.3';
+        } else {
+            // Back to full opacity at the top
+            logo.style.opacity = '1';
+        }
+    });
 
-    // --- 2. BURGER MENU LOGIC (Connected) ---
+    // --- 3. BURGER MENU LOGIC ---
     const burger = document.querySelector('.burger-menu');
     const menuLinks = document.querySelectorAll('.menu-link');
     
-    // Toggle Menu
     burger.addEventListener('click', () => {
         document.body.classList.toggle('menu-active');
     });
 
-    // Close menu when clicking a link
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
             document.body.classList.remove('menu-active');
         });
     });
 
-
-    // --- 3. CUSTOM CURSOR ---
+    // --- 4. CUSTOM CURSOR ---
     const dot = document.querySelector('.cursor-dot');
     const circle = document.querySelector('.cursor-circle');
 
     window.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
-        
         dot.style.left = `${x}px`;
         dot.style.top = `${y}px`;
-        
-        // Circle follows with animation via CSS
         circle.style.left = `${x}px`;
         circle.style.top = `${y}px`;
     });
 
-    // Add hover states
     const hoverables = document.querySelectorAll('a, .service-item, .gallery-item');
     hoverables.forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
     });
 
-
-    // --- 4. SERVICES HOVER (Background Swap) ---
+    // --- 5. SERVICES HOVER ---
     const serviceItems = document.querySelectorAll('.service-item');
     const serviceBg = document.getElementById('service-bg');
 
@@ -79,15 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceBg.style.backgroundImage = `url(${img})`;
             serviceBg.classList.add('active');
         });
-        
-        // Optional: Reset on leave or keep last image
-        // item.addEventListener('mouseleave', () => {
-        //     serviceBg.classList.remove('active');
-        // });
     });
 
-
-    // --- 5. PARALLAX EFFECT FOR HERO ---
+    // --- 6. PARALLAX ---
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
         const parallaxImg = document.querySelector('.parallax-img');
