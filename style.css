@@ -55,6 +55,23 @@ a { text-decoration: none; color: inherit; }
 body.hovering .cursor-circle {
     width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-color: white;
 }
+/* --- FIX: CURSOR COLOR IN MENU --- */
+
+/* When menu is active, turn the dot black */
+body.menu-active .cursor-dot {
+    background: #000000;
+}
+
+/* When menu is active, turn the circle dark gray */
+body.menu-active .cursor-circle {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* When hovering a link inside the menu, make the circle solid black */
+body.menu-active.hovering .cursor-circle {
+    border-color: #000000;
+    background: rgba(0, 0, 0, 0.05);
+}
 
 /* --- 4. LOADER --- */
 .loader-screen {
