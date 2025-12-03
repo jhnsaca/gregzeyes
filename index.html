@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GREGOIRE THIBAUT | PORTFOLIO</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonts: Syne (Headings) & Space Grotesk (Body) -->
+    
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
+    
+    <!-- Syncopate (Hero Title) -->
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <!-- Italiana (New Elegant Headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <!-- Space Grotesk (Body Text) -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+
 </head>
 <body class="loading-active">
 
@@ -30,8 +36,8 @@
     <div class="cursor-dot"></div>
     <div class="cursor-circle"></div>
 
-    <!-- Fixed Logo (Top Left) -->
-    <a href="#hero" class="fixed-logo">GT.</a>
+    <!-- Fixed Logo (Top Left) - Script will handle opacity on scroll -->
+    <a href="#hero" class="fixed-logo" id="logo-trigger">GT.</a>
 
     <!-- Burger Menu Trigger (Top Right) -->
     <div class="burger-menu">
@@ -67,7 +73,7 @@
             </div>
         </header>
 
-        <!-- WORK SECTION (Smooth Native Horizontal Scroll) -->
+        <!-- WORK SECTION -->
         <section id="work">
             <div class="section-title">
                 <span>01</span>
@@ -75,7 +81,6 @@
             </div>
             
             <div class="gallery-container">
-                <!-- Use 'wrapper' to hold items for clean scrolling -->
                 <div class="gallery-wrapper">
                     
                     <!-- Item 1 -->
@@ -138,7 +143,7 @@
                             <img src="assets/bolivie-mural.jpg" alt="Natural art">
                         </div>
                         <div class="item-info">
-                            <h3>Natural art</h3>
+                            <h3>NATURAL ART</h3>
                             <p>The mural / Bolivia 2024</p>
                         </div>
                     </div>
@@ -152,14 +157,13 @@
                 <span class="tiny-label">02 — PROFILE</span>
                 <h2 class="about-headline">Painter of <br>borrowed time.</h2>
                 <p class="about-text">
-                        “I approach this world through the impulse to create stories.
-To succeed in making an emotion live forever,
-through a single frozen image, or through several that,
-one after another,
-form a film —
-is an art in itself.
-That is the one I practice.”
-                    </p>
+                    “I approach this world through the impulse to create stories.
+                    To succeed in making an emotion live forever,
+                    through a single frozen image, or through several that,
+                    one after another, form a film —
+                    is an art in itself.
+                    That is the one I practice.”
+                </p>
                 <div class="stats">
                     <div>
                         <h4>50+</h4>
@@ -173,9 +177,8 @@ That is the one I practice.”
             </div>
         </section>
 
-        <!-- SERVICES SECTION (Interactive Hover) -->
+        <!-- SERVICES SECTION -->
         <section id="services">
-            <!-- The background that changes -->
             <div class="service-bg" id="service-bg"></div>
             
             <div class="service-container">
@@ -184,93 +187,80 @@ That is the one I practice.”
                     <h2>EXPERTISE</h2>
                 </div>
 
-               <!-- Inside #services section -->
-<ul class="service-list">
-    
-    <!-- Item 1: Photography -->
-    <li class="service-item" data-image="assets/model-koegel.jpg">
-        <div class="service-top">
-            <span class="s-name">Photography</span>
-            <span class="s-arrow">→</span>
-        </div>
-        <div class="service-hidden-block">
-            <div class="block-inner">
-                <p>We freeze time to capture the raw essence of your brand. From high-fashion editorial spreads to intimate event coverage, every frame is composed with cinematic precision and lighting mastery.</p>
-                <span class="tags">Tags: Editorial / Portrait / Campaigns</span>
-            </div>
-        </div>
-    </li>
+                <ul class="service-list">
+                    <!-- Item 1 -->
+                    <li class="service-item" data-image="assets/model-koegel.jpg">
+                        <div class="service-top">
+                            <span class="s-name">Photography</span>
+                            <span class="s-arrow">→</span>
+                        </div>
+                        <div class="service-hidden-block">
+                            <div class="block-inner">
+                                <p>We freeze time to capture the raw essence of your brand. From high-fashion editorial spreads to intimate event coverage, every frame is composed with cinematic precision.</p>
+                                <span class="tags">Tags: Editorial / Portrait / Campaigns</span>
+                            </div>
+                        </div>
+                    </li>
 
-    <!-- Item 2: Video -->
-    <li class="service-item" data-image="assets/chili-village.jpg">
-        <div class="service-top">
-            <span class="s-name">Video Production</span>
-            <span class="s-arrow">→</span>
-        </div>
-        <div class="service-hidden-block">
-            <div class="block-inner">
-                <p>Motion dictates emotion. We produce high-end commercial spots, music videos, and brand storytelling pieces that grip the audience from the first second. Full production from script to color grade.</p>
-                <span class="tags">Tags: Commercial / Clips / Film</span>
-            </div>
-        </div>
-    </li>
+                    <!-- Item 2 -->
+                    <li class="service-item" data-image="assets/chili-village.jpg">
+                        <div class="service-top">
+                            <span class="s-name">Video Production</span>
+                            <span class="s-arrow">→</span>
+                        </div>
+                        <div class="service-hidden-block">
+                            <div class="block-inner">
+                                <p>Motion dictates emotion. We produce high-end commercial spots, music videos, and brand storytelling pieces that grip the audience from the first second.</p>
+                                <span class="tags">Tags: Commercial / Clips / Film</span>
+                            </div>
+                        </div>
+                    </li>
 
-    <!-- Item 3: Content Creation -->
-    <li class="service-item" data-image="assets/walking-red.jpg">
-        <div class="service-top">
-            <span class="s-name">Content Creation</span>
-            <span class="s-arrow">→</span>
-        </div>
-        <div class="service-hidden-block">
-            <div class="block-inner">
-                <p>Designed for the scroll. We create striking, vertical-first visual assets optimized for Instagram Reels and TikTok. High retention, high energy, and perfectly aligned with current trends.</p>
-                <span class="tags">Tags: Reels / TikTok / Shorts</span>
-            </div>
-        </div>
-    </li>
+                    <!-- Item 3 -->
+                    <li class="service-item" data-image="assets/walking-red.jpg">
+                        <div class="service-top">
+                            <span class="s-name">Content Creation</span>
+                            <span class="s-arrow">→</span>
+                        </div>
+                        <div class="service-hidden-block">
+                            <div class="block-inner">
+                                <p>Designed for the scroll. We create striking, vertical-first visual assets optimized for Instagram Reels and TikTok. High retention, high energy.</p>
+                                <span class="tags">Tags: Reels / TikTok / Shorts</span>
+                            </div>
+                        </div>
+                    </li>
 
-    <!-- Item 4: Community Management -->
-    <li class="service-item" data-image="assets/lau-robe.jpg">
-        <div class="service-top">
-            <span class="s-name">Community Mgmt</span>
-            <span class="s-arrow">→</span>
-        </div>
-        <div class="service-hidden-block">
-            <div class="block-inner">
-                <p>It's not just about posting; it's about building a cult following. We handle your strategy, copywriting, and audience interaction to turn passive followers into loyal brand ambassadors.</p>
-                <span class="tags">Tags: Strategy / Growth / Engagement</span>
-            </div>
-        </div>
-    </li>
-
-</ul>
+                    <!-- Item 4 -->
+                    <li class="service-item" data-image="assets/lau-robe.jpg">
+                        <div class="service-top">
+                            <span class="s-name">Community Mgmt</span>
+                            <span class="s-arrow">→</span>
+                        </div>
+                        <div class="service-hidden-block">
+                            <div class="block-inner">
+                                <p>It's not just about posting; it's about building a cult following. We handle your strategy and audience interaction to turn passive followers into loyal ambassadors.</p>
+                                <span class="tags">Tags: Strategy / Growth / Engagement</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
-    <!-- CONTACT SECTION -->
+        <!-- CONTACT SECTION -->
         <section id="contact">
             <div class="contact-center">
                 <p class="tiny-label">04 — NEXT STEPS</p>
                 <h2 class="cta-text">LET'S BUILD<br>YOUR LEGACY</h2>
                 
-                <!-- 
-                     SMART EMAIL LINK 
-                     Subject: Project Inquiry
-                     Body: Pre-written polite message asking for a call
-                -->
-                <a href="mailto:gregoirethibautpro@gmail.com?subject=Project%20Inquiry%20%7C%20Let's%20Create&body=Hello%20Gregoire%2C%0D%0A%0D%0AI%20have%20seen%20your%20portfolio%20and%20I%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.%0D%0A%0D%0AAre%20you%20available%20for%20a%20short%20call%20soon%3F%0D%0A%0D%0ABest%20regards%2C" 
+                <a href="mailto:gregoirethibautpro@gmail.com?subject=Project%20Inquiry%20%7C%20Let's%20Create&body=Hello%20Gregoire%2C%0D%0A%0D%0AI%20have%20seen%20your%20portfolio%20and%20I%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you." 
                    class="email-btn">
                     gregoirethibautpro@gmail.com
                 </a>
 
                 <div class="footer-links">
-                    <!-- Instagram (Opens in new tab) -->
                     <a href="https://www.instagram.com/gregzeyes/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                    
-                    <!-- LinkedIn (Opens in new tab) -->
                     <a href="https://www.linkedin.com/in/gregoire-thibaut" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    
-                    <!-- Behance (Placeholder) -->
                     <a href="#">Behance</a>
                 </div>
             </div>
