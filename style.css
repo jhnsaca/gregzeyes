@@ -6,8 +6,8 @@
     --gray: #888;
     
     /* NEW FONT SETUP */
-    --font-hero: 'Syncopate', sans-serif; /* Only for the big "VISUAL ARCHITECT" */
-    --font-head: 'Italiana', serif;        /* For H2, H3, Menus - Elegant & Fine */
+    --font-hero: 'Syncopate', sans-serif;
+    --font-head: 'Italiana', serif;
     --font-body: 'Space Grotesk', sans-serif;
 }
 
@@ -35,8 +35,7 @@ body.loading-active, body.menu-active { overflow: hidden; }
     opacity: 0.05; pointer-events: none; z-index: 50;
 }
 
-/* --- 2. TYPOGRAPHY (Refined) --- */
-/* Reduced sizes overall for more elegance */
+/* --- 2. TYPOGRAPHY (Responsive) --- */
 h1 { font-family: var(--font-hero); font-weight: 700; text-transform: uppercase; }
 h2, h3 { font-family: var(--font-head); font-weight: 400; text-transform: uppercase; }
 p { font-weight: 300; line-height: 1.7; }
@@ -55,23 +54,11 @@ a { text-decoration: none; color: inherit; }
 body.hovering .cursor-circle {
     width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-color: white;
 }
+
 /* --- FIX: CURSOR COLOR IN MENU --- */
-
-/* When menu is active, turn the dot black */
-body.menu-active .cursor-dot {
-    background: #000000;
-}
-
-/* When menu is active, turn the circle dark gray */
-body.menu-active .cursor-circle {
-    border-color: rgba(0, 0, 0, 0.3);
-}
-
-/* When hovering a link inside the menu, make the circle solid black */
-body.menu-active.hovering .cursor-circle {
-    border-color: #000000;
-    background: rgba(0, 0, 0, 0.05);
-}
+body.menu-active .cursor-dot { background: #000000; }
+body.menu-active .cursor-circle { border-color: rgba(0, 0, 0, 0.3); }
+body.menu-active.hovering .cursor-circle { border-color: #000000; background: rgba(0, 0, 0, 0.05); }
 
 /* --- 4. LOADER --- */
 .loader-screen {
@@ -89,16 +76,10 @@ body.menu-active.hovering .cursor-circle {
 
 /* --- 5. NAVIGATION --- */
 .fixed-logo {
-    position: fixed; 
-    top: 30px; 
-    left: 30px; 
-    font-family: var(--font-hero); /* Keep GT bold */
-    font-weight: 700; 
-    font-size: 1.5rem; 
-    z-index: 2000; 
-    color: #fff; 
-    mix-blend-mode: difference;
-    transition: opacity 0.5s ease; /* For smooth fade */
+    position: fixed; top: 30px; left: 30px; 
+    font-family: var(--font-hero); font-weight: 700; font-size: 1.5rem; 
+    z-index: 2000; color: #fff; mix-blend-mode: difference;
+    transition: opacity 0.5s ease;
 }
 
 .burger-menu {
@@ -121,18 +102,31 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 
 .menu-links { display: flex; flex-direction: column; gap: 15px; text-align: center; }
 .menu-link {
-    font-family: var(--font-head); 
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Smaller, more elegant */
+    font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4rem);
     color: #000000; transition: 0.4s; position: relative; text-decoration: none;
 }
 .menu-link:hover { 
-    color: transparent; -webkit-text-stroke: 1px #000; /* Thinner stroke */
-    transform: translateX(10px); 
-    font-style: italic; /* Elegant touch on hover */
+    color: transparent; -webkit-text-stroke: 1px #000; 
+    transform: translateX(10px); font-style: italic; 
 }
 .menu-footer {
     position: absolute; bottom: 40px; display: flex; gap: 30px;
     color: #555; font-size: 0.8rem; text-transform: uppercase;
+}
+
+/* --- LANGUAGE SWITCHER --- */
+.lang-switcher {
+    position: fixed; bottom: 40px; right: 40px; z-index: 2000;
+    font-family: var(--font-body); font-size: 0.9rem; color: #888;
+    mix-blend-mode: difference; cursor: pointer; letter-spacing: 2px;
+}
+.lang-btn { transition: color 0.3s; }
+.lang-btn.active { color: #fff; font-weight: 700; border-bottom: 1px solid #fff; }
+.lang-btn:hover { color: #fff; }
+.separator { margin: 0 5px; opacity: 0.5; }
+
+@media (max-width: 768px) {
+    .lang-switcher { bottom: 30px; right: 20px; font-size: 0.8rem; }
 }
 
 /* --- 6. HERO SECTION --- */
@@ -145,75 +139,46 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 
 .hero-title {
     font-family: var(--font-hero);
-    font-size: clamp(2rem, 8vw, 6rem); /* Controlled size */
+    font-size: clamp(2rem, 8vw, 6rem); 
     line-height: 1.1; margin-bottom: 20px; width: 100%;
-    letter-spacing: -2px; 
-    text-transform: uppercase;
+    letter-spacing: -2px; text-transform: uppercase;
 }
 .outline { color: transparent; -webkit-text-stroke: 1px #fff; }
 
 .hero-sub {
-    font-family: var(--font-body); 
-    font-size: clamp(0.7rem, 1vw, 0.9rem); 
-    letter-spacing: 6px; 
-    text-transform: uppercase;
-    margin-top: 20px; opacity: 0.8;
+    font-family: var(--font-body); font-size: clamp(0.7rem, 1vw, 0.9rem); 
+    letter-spacing: 6px; text-transform: uppercase; margin-top: 20px; opacity: 0.8;
 }
 
 /* --- 7. WORK SECTION --- */
 #work { padding: 120px 0; }
-
 .section-title {
     padding: 0 5%; margin-bottom: 50px; display: flex; gap: 20px; align-items: baseline;
     color: var(--gray); font-family: var(--font-body); font-size: 0.9rem;
 }
 .section-title h2 {
-    font-family: var(--font-head);
-    font-size: clamp(1.8rem, 3vw, 3rem); /* Elegant sizing */
-    color: var(--text);
-    letter-spacing: 1px;
+    font-family: var(--font-head); font-size: clamp(1.8rem, 3vw, 3rem);
+    color: var(--text); letter-spacing: 1px;
 }
-
 .gallery-container {
-    width: 100%;
-    overflow-x: auto; 
-    padding-bottom: 50px;
-    /* Snap scroll for mobile feeling */
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; -ms-overflow-style: none;
+    width: 100%; overflow-x: auto; padding-bottom: 50px;
+    scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;
 }
 .gallery-container::-webkit-scrollbar { display: none; }
-
-.gallery-wrapper {
-    display: flex; gap: 4vw; padding: 0 5%; width: max-content;
-}
-
+.gallery-wrapper { display: flex; gap: 4vw; padding: 0 5%; width: max-content; }
 .gallery-item {
-    width: clamp(280px, 35vw, 500px); /* Responsive cards */
-    flex-shrink: 0; 
-    scroll-snap-align: center; /* Snaps to center on mobile */
-    transition: transform 0.3s;
+    width: clamp(280px, 35vw, 500px); flex-shrink: 0; scroll-snap-align: center; transition: transform 0.3s;
 }
-
-.img-holder {
-    width: 100%; aspect-ratio: 4/5; /* Taller editorial look */
-    overflow: hidden; margin-bottom: 20px;
-}
-.img-holder img {
-    width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; filter: grayscale(100%);
-}
+.img-holder { width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 20px; }
+.img-holder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; filter: grayscale(100%); }
 .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
-
-.item-info h3 { 
-    font-family: var(--font-head);
-    font-size: 1.4rem; margin-bottom: 5px; letter-spacing: 1px;
-}
+.item-info h3 { font-family: var(--font-head); font-size: 1.4rem; margin-bottom: 5px; letter-spacing: 1px; }
 .item-info p { color: var(--gray); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;}
 
 /* --- 8. PROFILE SECTION --- */
 #about {
-    position: relative;
-    min-height: 100vh; width: 100%;
+    position: relative; min-height: 100vh; width: 100%;
+    /* Use correct path as per user request */
     background: url('assets/img-profil.jpg') no-repeat center center;
     background-size: cover; background-attachment: fixed; 
     display: flex; align-items: center; justify-content: center; text-align: center;
@@ -228,15 +193,12 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     font-size: 0.7rem; color: var(--accent); margin-bottom: 30px; display: block; letter-spacing: 3px;
 }
 .about-headline {
-    font-family: var(--font-head);
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Refined size */
+    font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.2; margin-bottom: 40px; color: #ffffff;
     text-shadow: 0 10px 30px rgba(0,0,0,0.5); 
 }
 .about-text {
-    font-family: var(--font-head); /* Using serif for the quote gives it class */
-    font-style: italic;
-    font-size: clamp(1.1rem, 1.5vw, 1.4rem); 
+    font-family: var(--font-head); font-style: italic; font-size: clamp(1.1rem, 1.5vw, 1.4rem); 
     color: #e0e0e0; margin-bottom: 50px; line-height: 1.8; 
     margin-left: auto; margin-right: auto; max-width: 550px;
 }
@@ -275,9 +237,7 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
     display: flex; justify-content: space-between; align-items: center; padding: 25px 0;
 }
 .s-name { 
-    font-family: var(--font-head); 
-    font-size: clamp(1.8rem, 3.5vw, 3.5rem); /* Smaller, finer */
-    font-weight: 400; 
+    font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 3.5rem); font-weight: 400; 
 }
 .s-arrow { font-size: 1.5rem; transform: rotate(0deg); transition: transform 0.4s ease; color: #666; }
 .service-item:hover .s-arrow { transform: rotate(45deg); color: var(--accent); }
@@ -304,10 +264,8 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 }
 .contact-center { position: relative; z-index: 2; padding: 0 20px; }
 .cta-text {
-    font-family: var(--font-head);
-    font-size: clamp(2.5rem, 6vw, 5rem); 
-    line-height: 1; margin: 40px 0;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 5rem); 
+    line-height: 1; margin: 40px 0; text-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 .email-btn {
     font-size: clamp(0.9rem, 1.5vw, 1.1rem); border: 1px solid #fff; padding: 15px 35px;
