@@ -23,7 +23,7 @@
     <!-- === 1. MINIMAL LOADER === -->
     <div class="loader-screen">
         <div class="loader-wrapper">
-            <div class="loader-name">GREGOIRE THIBAUT</div>
+            <div class="loader-name" data-i18n="loader-name">GREGOIRE THIBAUT</div>
             <div class="loader-bar-bg">
                 <div class="loader-bar-fill"></div>
             </div>
@@ -36,10 +36,17 @@
     <div class="cursor-dot"></div>
     <div class="cursor-circle"></div>
 
-    <!-- Fixed Logo (Top Left) - Script will handle opacity on scroll -->
+    <!-- Fixed Logo (Top Left) -->
     <a href="#hero" class="fixed-logo" id="logo-trigger">GT.</a>
 
-    <!-- Burger Menu Trigger (Top Right) -->
+    <!-- LANGUAGE SWITCHER (New) -->
+    <div class="lang-switcher">
+        <span class="lang-btn active" onclick="setLanguage('en')">EN</span>
+        <span class="separator">/</span>
+        <span class="lang-btn" onclick="setLanguage('fr')">FR</span>
+    </div>
+
+    <!-- Burger Menu Trigger -->
     <div class="burger-menu">
         <div class="burger-line top"></div>
         <div class="burger-line bottom"></div>
@@ -48,14 +55,14 @@
     <!-- Fullscreen Menu Overlay -->
     <div class="menu-overlay">
         <div class="menu-links">
-            <a href="#work" class="menu-link" data-text="Work">Work</a>
-            <a href="#services" class="menu-link" data-text="Services">Services</a>
-            <a href="#about" class="menu-link" data-text="Profile">Profile</a>
-            <a href="#contact" class="menu-link" data-text="Contact">Contact</a>
+            <a href="#work" class="menu-link" data-i18n="nav-work">Work</a>
+            <a href="#services" class="menu-link" data-i18n="nav-services">Services</a>
+            <a href="#about" class="menu-link" data-i18n="nav-profile">Profile</a>
+            <a href="#contact" class="menu-link" data-i18n="nav-contact">Contact</a>
         </div>
         <div class="menu-footer">
-            <span>Based in France</span>
-            <span>Available Worldwide</span>
+            <span data-i18n="nav-loc">Based in France</span>
+            <span data-i18n="nav-avail">Available Worldwide</span>
         </div>
     </div>
 
@@ -68,8 +75,8 @@
                 <img src="assets/lau-cygne2.jpg" alt="Background" class="parallax-img">
             </div>
             <div class="hero-content">
-                <h1 class="hero-title">VISUAL<br><span class="outline">ARCHITECT</span></h1>
-                <p class="hero-sub">Photography & Art Direction</p>
+                <h1 class="hero-title">VISUAL<br><span class="outline" data-i18n="hero-title-2">ARCHITECT</span></h1>
+                <p class="hero-sub" data-i18n="hero-sub">Photography & Art Direction</p>
             </div>
         </header>
 
@@ -77,7 +84,7 @@
         <section id="work">
             <div class="section-title">
                 <span>01</span>
-                <h2>SELECTED WORKS</h2>
+                <h2 data-i18n="section-work">SELECTED WORKS</h2>
             </div>
             
             <div class="gallery-container">
@@ -89,8 +96,8 @@
                             <img src="assets/flower-women.jpg" alt="Spontaneous">
                         </div>
                         <div class="item-info">
-                            <h3>SPONTANEOUS</h3>
-                            <p>The flower women / Bolivia 2024</p>
+                            <h3 data-i18n="work-1-title">SPONTANEOUS</h3>
+                            <p data-i18n="work-1-desc">The flower women / Bolivia 2024</p>
                         </div>
                     </div>
                    
@@ -100,8 +107,8 @@
                             <img src="assets/studio.jpg" alt="Shooting">
                         </div>
                         <div class="item-info">
-                            <h3>SHOOTING</h3>
-                            <p>Theater poster / France 2025</p>
+                            <h3 data-i18n="work-2-title">SHOOTING</h3>
+                            <p data-i18n="work-2-desc">Theater poster / France 2025</p>
                         </div>
                     </div>
 
@@ -111,8 +118,8 @@
                             <img src="assets/enfant-as.jpg" alt="Motion">
                         </div>
                         <div class="item-info">
-                            <h3>MOTION</h3>
-                            <p>Kid's lesson / South Africa 2022</p>
+                            <h3 data-i18n="work-3-title">MOTION</h3>
+                            <p data-i18n="work-3-desc">Kid's lesson / South Africa 2022</p>
                         </div>
                     </div>
 
@@ -122,8 +129,8 @@
                             <img src="assets/portrait.jpg" alt="Portrait">
                         </div>
                         <div class="item-info">
-                            <h3>PORTRAIT</h3>
-                            <p>Character / Brasil 2023</p>
+                            <h3 data-i18n="work-4-title">PORTRAIT</h3>
+                            <p data-i18n="work-4-desc">Character / Brasil 2023</p>
                         </div>
                     </div>
                     
@@ -133,8 +140,8 @@
                             <img src="assets/african-kids.jpg" alt="Documentary">
                         </div> 
                         <div class="item-info">
-                            <h3>DOCUMENTARY</h3>
-                            <p>Late for school / South Africa 2019</p>
+                            <h3 data-i18n="work-5-title">DOCUMENTARY</h3>
+                            <p data-i18n="work-5-desc">Late for school / South Africa 2019</p>
                         </div>
                     </div>
                      <!-- Item 6 -->
@@ -143,8 +150,8 @@
                             <img src="assets/giraffe2.jpg" alt="Natural art">
                         </div>
                         <div class="item-info">
-                            <h3>NATURAL ART</h3>
-                            <p> Roommates / Namibia 2023</p>
+                            <h3 data-i18n="work-6-title">NATURAL ART</h3>
+                            <p data-i18n="work-6-desc">Roommates / Namibia 2023</p>
                         </div>
                     </div>
                 </div>
@@ -154,9 +161,9 @@
         <!-- PROFILE SECTION -->
         <section id="about">
             <div class="about-content">
-                <span class="tiny-label">02 — PROFILE</span>
-                <h2 class="about-headline">Gregoire <br>Thibaut</h2>
-                <p class="about-text">
+                <span class="tiny-label" data-i18n="section-profile-label">02 — PROFILE</span>
+                <h2 class="about-headline" data-i18n="profile-headline">Gregoire <br>Thibaut</h2>
+                <p class="about-text" data-i18n="profile-text">
                     “I approach this world through the impulse to create stories.
                     To succeed in making an emotion live forever,
                     through a single frozen image, or through several that,
@@ -167,11 +174,11 @@
                 <div class="stats">
                     <div>
                         <h4>50+</h4>
-                        <span>Projects</span>
+                        <span data-i18n="stat-projects">Projects</span>
                     </div>
                     <div>
-                        <h4>Global</h4>
-                        <span>Reach</span>
+                        <h4 data-i18n="stat-global">Global</h4>
+                        <span data-i18n="stat-reach">Reach</span>
                     </div>
                 </div>
             </div>
@@ -184,20 +191,20 @@
             <div class="service-container">
                 <div class="section-title white">
                     <span>03</span>
-                    <h2>EXPERTISE</h2>
+                    <h2 data-i18n="section-expertise">EXPERTISE</h2>
                 </div>
 
                 <ul class="service-list">
                     <!-- Item 1 -->
                     <li class="service-item" data-image="assets/model-koegel.jpg">
                         <div class="service-top">
-                            <span class="s-name">Photography</span>
+                            <span class="s-name" data-i18n="serv-1-name">Photography</span>
                             <span class="s-arrow">→</span>
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p>We freeze time to capture the raw essence of your brand. From high-fashion editorial spreads to intimate event coverage, every frame is composed with cinematic precision.</p>
-                                <span class="tags">Tags: Editorial / Portrait / Campaigns</span>
+                                <p data-i18n="serv-1-desc">We freeze time to capture the raw essence of your brand. From high-fashion editorial spreads to intimate event coverage, every frame is composed with cinematic precision.</p>
+                                <span class="tags" data-i18n="serv-1-tags">Tags: Editorial / Portrait / Campaigns</span>
                             </div>
                         </div>
                     </li>
@@ -205,13 +212,13 @@
                     <!-- Item 2 -->
                     <li class="service-item" data-image="assets/chili-village.jpg">
                         <div class="service-top">
-                            <span class="s-name">Video Production</span>
+                            <span class="s-name" data-i18n="serv-2-name">Video Production</span>
                             <span class="s-arrow">→</span>
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p>Motion dictates emotion. We produce high-end commercial spots, music videos, and brand storytelling pieces that grip the audience from the first second.</p>
-                                <span class="tags">Tags: Commercial / Clips / Film</span>
+                                <p data-i18n="serv-2-desc">Motion dictates emotion. We produce high-end commercial spots, music videos, and brand storytelling pieces that grip the audience from the first second.</p>
+                                <span class="tags" data-i18n="serv-2-tags">Tags: Commercial / Clips / Film</span>
                             </div>
                         </div>
                     </li>
@@ -219,13 +226,13 @@
                     <!-- Item 3 -->
                     <li class="service-item" data-image="assets/walking-red.jpg">
                         <div class="service-top">
-                            <span class="s-name">Content Creation</span>
+                            <span class="s-name" data-i18n="serv-3-name">Content Creation</span>
                             <span class="s-arrow">→</span>
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p>Designed for the scroll. We create striking, vertical-first visual assets optimized for Instagram Reels and TikTok. High retention, high energy.</p>
-                                <span class="tags">Tags: Reels / TikTok / Shorts</span>
+                                <p data-i18n="serv-3-desc">Designed for the scroll. We create striking, vertical-first visual assets optimized for Instagram Reels and TikTok. High retention, high energy.</p>
+                                <span class="tags" data-i18n="serv-3-tags">Tags: Reels / TikTok / Shorts</span>
                             </div>
                         </div>
                     </li>
@@ -233,13 +240,13 @@
                     <!-- Item 4 -->
                     <li class="service-item" data-image="assets/lau-robe.jpg">
                         <div class="service-top">
-                            <span class="s-name">Community Mgmt</span>
+                            <span class="s-name" data-i18n="serv-4-name">Community Mgmt</span>
                             <span class="s-arrow">→</span>
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p>It's not just about posting; it's about building a cult following. We handle your strategy and audience interaction to turn passive followers into loyal ambassadors.</p>
-                                <span class="tags">Tags: Strategy / Growth / Engagement</span>
+                                <p data-i18n="serv-4-desc">It's not just about posting; it's about building a cult following. We handle your strategy and audience interaction to turn passive followers into loyal ambassadors.</p>
+                                <span class="tags" data-i18n="serv-4-tags">Tags: Strategy / Growth / Engagement</span>
                             </div>
                         </div>
                     </li>
@@ -250,11 +257,10 @@
         <!-- CONTACT SECTION -->
         <section id="contact">
             <div class="contact-center">
-                <p class="tiny-label">04 — NEXT STEPS</p>
-                <h2 class="cta-text">LET'S BUILD<br>YOUR LEGACY</h2>
+                <p class="tiny-label" data-i18n="section-next">04 — NEXT STEPS</p>
+                <h2 class="cta-text" data-i18n="contact-cta">LET'S BUILD<br>YOUR LEGACY</h2>
                 
-                <a href="mailto:gregoirethibautpro@gmail.com?subject=Project%20Inquiry%20%7C%20Let's%20Create&body=Hello%20Gregoire%2C%0D%0A%0D%0AI%20have%20seen%20your%20portfolio%20and%20I%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you." 
-                   class="email-btn">
+                <a href="mailto:gregoirethibautpro@gmail.com" id="dynamic-mail-btn" class="email-btn">
                     gregoirethibautpro@gmail.com
                 </a>
 
