@@ -278,7 +278,7 @@ body.menu-active .menu-overlay { opacity: 1; pointer-events: auto; }
 
 /* MOBILE RESPONSIVE FINAL POLISH */
 @media (max-width: 768px) {
-    /* Hide custom cursor */
+    /* Hide cursor */
     .cursor-dot, .cursor-circle { display: none !important; }
     * { cursor: auto; }
     
