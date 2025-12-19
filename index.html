@@ -9,14 +9,9 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Syncopate (Hero Title) -->
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
-    <!-- Italiana (New Elegant Headings) -->
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
-    <!-- Space Grotesk (Body Text) -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
-
 </head>
 <body class="loading-active">
 
@@ -36,23 +31,23 @@
     <div class="cursor-dot"></div>
     <div class="cursor-circle"></div>
 
-    <!-- Fixed Logo (Top Left) -->
+    <!-- Fixed Logo -->
     <a href="#hero" class="fixed-logo" id="logo-trigger">GT.</a>
 
-    <!-- LANGUAGE SWITCHER (New) -->
+    <!-- LANGUAGE SWITCHER -->
     <div class="lang-switcher">
         <span class="lang-btn active" onclick="setLanguage('en')">EN</span>
         <span class="separator">/</span>
         <span class="lang-btn" onclick="setLanguage('fr')">FR</span>
     </div>
 
-    <!-- Burger Menu Trigger -->
+    <!-- Burger Menu -->
     <div class="burger-menu">
         <div class="burger-line top"></div>
         <div class="burger-line bottom"></div>
     </div>
 
-    <!-- Fullscreen Menu Overlay -->
+    <!-- Fullscreen Menu -->
     <div class="menu-overlay">
         <div class="menu-links">
             <a href="#work" class="menu-link" data-i18n="nav-work">Work</a>
@@ -65,6 +60,9 @@
             <span data-i18n="nav-avail">Available Worldwide</span>
         </div>
     </div>
+
+    <!-- PAGE TRANSITION CURTAIN (Required for smooth entry) -->
+    <div class="curtain"></div>
 
     <!-- === 3. CONTENT === -->
     <main id="smooth-wrapper">
@@ -80,78 +78,84 @@
             </div>
         </header>
 
-        <!-- WORK SECTION -->
+        <!-- WORK SECTION (Updated with triggers) -->
         <section id="work">
             <div class="section-title">
                 <span>01</span>
-                <h2 data-i18n="section-work">Project styles</h2>
+                <h2 data-i18n="section-work">SELECTED WORKS</h2>
             </div>
             
             <div class="gallery-container">
                 <div class="gallery-wrapper">
                     
                     <!-- Item 1 -->
-                    <div class="gallery-item">
+                    <div class="gallery-item project-trigger" data-category="spontaneous">
                         <div class="img-holder">
                             <img src="assets/flower-women.jpg" alt="Spontaneous">
                         </div>
                         <div class="item-info">
                             <h3 data-i18n="work-1-title">SPONTANEOUS</h3>
                             <p data-i18n="work-1-desc">The flower women / Bolivia 2024</p>
+                            <span class="view-project-btn">[+] VIEW SERIES</span>
                         </div>
                     </div>
                    
                     <!-- Item 2 -->
-                    <div class="gallery-item">
+                    <div class="gallery-item project-trigger" data-category="shooting">
                         <div class="img-holder">
                             <img src="assets/studio.jpg" alt="Shooting">
                         </div>
                         <div class="item-info">
                             <h3 data-i18n="work-2-title">SHOOTING</h3>
                             <p data-i18n="work-2-desc">Theater poster / France 2025</p>
+                            <span class="view-project-btn">[+] VIEW SERIES</span>
                         </div>
                     </div>
 
                     <!-- Item 3 -->
-                    <div class="gallery-item">
+                    <div class="gallery-item project-trigger" data-category="motion">
                         <div class="img-holder">
                             <img src="assets/enfant-as.jpg" alt="Motion">
                         </div>
                         <div class="item-info">
                             <h3 data-i18n="work-3-title">MOTION</h3>
                             <p data-i18n="work-3-desc">Kid's lesson / South Africa 2022</p>
+                            <span class="view-project-btn">[+] VIEW SERIES</span>
                         </div>
                     </div>
 
                     <!-- Item 4 -->
-                    <div class="gallery-item">
+                    <div class="gallery-item project-trigger" data-category="portrait">
                         <div class="img-holder">
                             <img src="assets/portrait.jpg" alt="Portrait">
                         </div>
                         <div class="item-info">
                             <h3 data-i18n="work-4-title">PORTRAIT</h3>
                             <p data-i18n="work-4-desc">Character / Brasil 2023</p>
+                            <span class="view-project-btn">[+] VIEW SERIES</span>
                         </div>
                     </div>
                     
                     <!-- Item 5 -->
-                    <div class="gallery-item">
+                    <div class="gallery-item project-trigger" data-category="documentary">
                         <div class="img-holder">
                             <img src="assets/african-kids.jpg" alt="Documentary">
                         </div> 
                         <div class="item-info">
                             <h3 data-i18n="work-5-title">DOCUMENTARY</h3>
                             <p data-i18n="work-5-desc">Late for school / South Africa 2019</p>
+                            <span class="view-project-btn">[+] VIEW SERIES</span>
                         </div>
                     </div>
                      <!-- Item 6 -->
-                     <div class="gallery-item">
+                     <div class="gallery-item project-trigger" data-category="natural">
                         <div class="img-holder">
                             <img src="assets/giraffe2.jpg" alt="Natural art">
                         </div>
                         <div class="item-info">
                             <h3 data-i18n="work-6-title">NATURAL ART</h3>
                             <p data-i18n="work-6-desc">Roommates / Namibia 2023</p>
+                            <span class="view-project-btn">[+] VIEW SERIES</span>
                         </div>
                     </div>
                 </div>
@@ -164,12 +168,7 @@
                 <span class="tiny-label" data-i18n="section-profile-label">02 — PROFILE</span>
                 <h2 class="about-headline" data-i18n="profile-headline">Gregoire <br>Thibaut</h2>
                 <p class="about-text" data-i18n="profile-text">
-                    “I approach this world through the impulse to create stories.
-                    To succeed in making an emotion live forever,
-                    through a single frozen image, or through several that,
-                    one after another, form a film;
-                    is an art in itself.
-                    That is the one I practice.”
+                    “I approach this world through the impulse to create stories...”
                 </p>
                 <div class="stats">
                     <div>
@@ -203,12 +202,11 @@
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p data-i18n="serv-1-desc">We freeze time to capture the raw essence of your brand. From high-fashion editorial spreads to intimate event coverage, every frame is composed with cinematic precision.</p>
+                                <p data-i18n="serv-1-desc">We freeze time to capture the raw essence...</p>
                                 <span class="tags" data-i18n="serv-1-tags">Tags: Editorial / Portrait / Campaigns</span>
                             </div>
                         </div>
                     </li>
-
                     <!-- Item 2 -->
                     <li class="service-item" data-image="assets/chili-village.jpg">
                         <div class="service-top">
@@ -217,12 +215,11 @@
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p data-i18n="serv-2-desc">Motion dictates emotion. We produce high-end commercial spots, music videos, and brand storytelling pieces that grip the audience from the first second.</p>
+                                <p data-i18n="serv-2-desc">Motion dictates emotion...</p>
                                 <span class="tags" data-i18n="serv-2-tags">Tags: Commercial / Clips / Film</span>
                             </div>
                         </div>
                     </li>
-
                     <!-- Item 3 -->
                     <li class="service-item" data-image="assets/walking-red.jpg">
                         <div class="service-top">
@@ -231,12 +228,11 @@
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p data-i18n="serv-3-desc">Designed for the scroll. We create striking, vertical-first visual assets optimized for Instagram Reels and TikTok. High retention, high energy.</p>
+                                <p data-i18n="serv-3-desc">Designed for the scroll...</p>
                                 <span class="tags" data-i18n="serv-3-tags">Tags: Reels / TikTok / Shorts</span>
                             </div>
                         </div>
                     </li>
-
                     <!-- Item 4 -->
                     <li class="service-item" data-image="assets/lau-robe.jpg">
                         <div class="service-top">
@@ -245,7 +241,7 @@
                         </div>
                         <div class="service-hidden-block">
                             <div class="block-inner">
-                                <p data-i18n="serv-4-desc">It's not just about posting; it's about building a cult following. We handle your strategy and audience interaction to turn passive followers into loyal ambassadors.</p>
+                                <p data-i18n="serv-4-desc">It's not just about posting...</p>
                                 <span class="tags" data-i18n="serv-4-tags">Tags: Strategy / Growth / Engagement</span>
                             </div>
                         </div>
@@ -273,6 +269,26 @@
         </section>
 
     </main>
+
+    <!-- === DYNAMIC PROJECT VIEWER (Hidden by default) === -->
+    <div id="project-viewer" class="project-viewer">
+        <div class="project-nav">
+            <div class="project-close-btn">
+                <span data-i18n="btn-close">CLOSE PROJECT</span>
+                <div class="close-icon">✕</div>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-header">
+                <h1 id="pj-title">PROJECT TITLE</h1>
+                <p id="pj-desc">Project Description</p>
+            </div>
+            <div class="project-grid" id="pj-grid"></div>
+            <div class="project-footer">
+                <div class="project-close-btn bottom-btn" data-i18n="btn-back">BACK TO WORKS</div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
